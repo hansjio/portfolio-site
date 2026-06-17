@@ -1,6 +1,6 @@
 const PROJECTS = {
   lupon: {
-      thumb: 'assets/projects/lupon/dashboard.png',
+    thumb: 'assets/projects/web-science/lupon/dashboard.png',
     label: 'Full-Stack Web Development · Academic Service Learning',
     title: 'Lupong Tagapamayapa: Criminal & Civil Cases Records Management System',
     period: 'Jan 2025 – May 2025',
@@ -45,17 +45,16 @@ const PROJECTS = {
       { val: '280hrs', lbl: 'Service Hours' }
     ],
     refs: [
-      { label: 'System User Manual', icon: '◎', file: 'assets/projects/lupon/USER-MANUAL-1.pdf' },
-      { label: 'Final Paper', icon: '◈', file: 'assets/projects/lupon/FINAL-PAPER.pdf' }
+      { label: 'System User Manual', icon: '◎', file: 'assets/projects/web-science/lupon/USER-MANUAL-1.pdf' },
+      { label: 'Academic Paper',     icon: '◈', file: 'assets/projects/web-science/lupon/academic_paper.pdf' }
     ],
     slides: [
-      { ph: '⌥', label: 'Login Page',                    img: 'assets/projects/lupon/login.png' },
-      { ph: '▦', label: 'Dashboard — KPI & Case Charts', img: 'assets/projects/lupon/dashboard.png' },
-      { ph: '◉', label: 'Cases Module',                  img: 'assets/projects/lupon/cases.png' },
-      { ph: '〜', label: 'Reports — Export to Excel',     img: 'assets/projects/lupon/reports.png' },
-      { ph: '⊙', label: 'Settings — Backup & Restore',   img: 'assets/projects/lupon/settings.png' },
-      { ph: '◎', label: 'System Logs',                   img: 'assets/projects/lupon/logs.png' },
-      { ph: '⊡', label: 'Archive Module',                img: 'assets/projects/lupon/archive.png' }
+      { ph: '▦', label: 'Dashboard — KPI & Case Charts', img: 'assets/projects/web-science/lupon/dashboard.png'  },
+      { ph: '◉', label: 'Cases Module',                  img: 'assets/projects/web-science/lupon/lupon-cases.png' },
+      { ph: '〜', label: 'Reports — Export to Excel',     img: 'assets/projects/web-science/lupon/lupon-reports.png' },
+      { ph: '⊙', label: 'Backups & Restore',             img: 'assets/projects/web-science/lupon/lupon-backups.png' },
+      { ph: '◎', label: 'System Logs',                   img: 'assets/projects/web-science/lupon/lupon-logs.png'   },
+      { ph: '⊡', label: 'Archive Module',                img: 'assets/projects/web-science/lupon/lupon-archive.png' }
     ]
   },
   carinderia: {
@@ -95,21 +94,191 @@ const PROJECTS = {
       </ul>
     `,
     stack: ['React', 'JavaScript', 'Node.js', 'MySQL', 'Chart.js'],
-    tasks: ['Full-Stack Development', 'Database Design', 'POS UI', 'Analytics', 'Role-Based Auth'],
+    tasks: ['Full-Stack Development', 'Database Design', 'POS UI', 'AI-Assisted Code Auditing', 'Role-Based Auth'],
     metrics: [
       { val: '4', lbl: 'Branches' },
       { val: '7+', lbl: 'Core Modules' },
       { val: '3', lbl: 'User Roles' }
     ],
     slides: [
-      { ph: '⌥', label: 'Login — Branch Selection',        img: 'assets/projects/carinderia/login.png' },
-      { ph: '▦', label: 'Dashboard — Branch Overview',     img: 'assets/projects/carinderia/dashboard.png' },
-      { ph: '◉', label: 'Point of Sale',                   img: 'assets/projects/carinderia/pos.png' },
-      { ph: '〜', label: 'Inventory Management',            img: 'assets/projects/carinderia/inventory.png' },
-      { ph: '⊙', label: 'Dish & Item Management',          img: 'assets/projects/carinderia/dishes.png' },
-      { ph: '◎', label: 'Dish Transfers',                  img: 'assets/projects/carinderia/transfers.png' },
-      { ph: '⊡', label: 'Sales Reports & Analytics',       img: 'assets/projects/carinderia/reports.png' },
-      { ph: '⟦', label: 'User Management',                 img: 'assets/projects/carinderia/users.png' }
+      { ph: '⌥', label: 'Login — Branch Selection',    img: 'assets/projects/web-science/carinderia/login.png'           },
+      { ph: '▦', label: 'Dashboard — Branch Overview', img: 'assets/projects/web-science/carinderia/dashboard.png'        },
+      { ph: '◉', label: 'Point of Sale',               img: 'assets/projects/web-science/carinderia/pos.png'              },
+      { ph: '〜', label: 'Inventory Management',        img: 'assets/projects/web-science/carinderia/inventory.png'        },
+      { ph: '⊙', label: 'Dish & Item Management',      img: 'assets/projects/web-science/carinderia/dish_management.png'  },
+      { ph: '◎', label: 'Dish Transfers',              img: 'assets/projects/web-science/carinderia/transfers.png'        },
+      { ph: '⊡', label: 'Sales Reports & Analytics',   img: 'assets/projects/web-science/carinderia/reports.png'         },
+      { ph: '⟦', label: 'User Management',             img: 'assets/projects/web-science/carinderia/user_management.png' }
+    ]
+  },
+  'homeEcon_schoolEnrollment-correlation': {
+    label: 'Data Science · Regional Correlation Study',
+    title: 'Regional Correlation Study: Household Economics & School Enrollment',
+    period: 'Dec 2025',
+    thumb: 'assets/projects/data-science/homeEcon_schoolEnrollment-correlation/slide-1.png',
+    body: `
+      <p>A regional data mining and correlation study that integrates household socioeconomic indicators from the Filipino Family Income and Expenditure Survey (FIES) with K–12 school enrollment statistics from the Department of Education (DepEd) for Academic Year 2017–2018. Following the CRISP-DM methodology, the project applies descriptive statistics, correlation matrices, K-means clustering, and decision tree classifiers to uncover how family income, food expenditure share, and academic sector shape student track choices in Senior High School (SHS) across the Philippines.</p>
+ 
+      <h2>Hypothesis</h2>
+      <ul>
+        <li><strong>Question:</strong> How do household socioeconomic constraints (specifically income, overall education spending, and food budget share) correlate with regional basic education enrollment and SHS strand preferences (e.g., STEM, ABM, TVL, GAS)?</li>
+        <li><strong>Data Source:</strong> Philippine Statistics Authority (PSA) Filipino Family Income and Expenditure Survey (FFIES) and DepEd K-12 Regional Enrollment datasets, integrated via RapidMiner.</li>
+        <li><strong>Scope:</strong> National household socioeconomic profiles linked with 26.24 million student enrollment records across all 17 administrative regions.</li>
+      </ul>
+ 
+      <h2>Method</h2>
+      <ul>
+        <li><strong>Data Processing & Integration:</strong> Normalized irregular region names, handled missing values, removed redundant columns (such as household appliance ownership), and merged datasets at the regional level.</li>
+        <li><strong>Transformation & Scaling:</strong> Applied Z-Score transformation to skew-sensitive financial variables (income, expenditures) to enable standardized comparative analyses with regional student counts.</li>
+        <li><strong>Statistical & Predictive Modeling:</strong> Computed Pearson correlation matrices, trained a K-Means clustering algorithm to profiles regional economic clusters, and built a Decision Tree classifier to discover the primary socioeconomic factors predicting SHS track enrollment.</li>
+        <li><strong>Visualization:</strong> Created interactive, multi-tab Dashboards in Microsoft Power BI and designed custom reporting templates in Canva.</li>
+      </ul>
+ 
+      <h2>Findings</h2>
+      <ul>
+        <li><strong>Primary Predictor (Food Share):</strong> The decision tree established Food Share (the percentage of family budget spent on food) as the strongest predictor of SHS track choice. Regions with high food share (indicative of lower household income) lean heavily toward General Academic Strand (GAS).</li>
+        <li><strong>High-Income Tracks:</strong> Higher household income and education expenditure are strongly correlated with specialized academic tracks, specifically Science, Technology, Engineering, and Math (STEM) and Accountancy, Business, and Management (ABM).</li>
+        <li><strong>Academic Sector Disparity:</strong> Public schools show a clear orientation toward Technical-Vocational-Livelihood (TVL) tracks, while private schools and State/Local Universities (SUC/LUC) favor STEM/ABM. High enrollment in STEM increases the likelihood of the sector being Private by 38.66x.</li>
+        <li><strong>Baseline Metrics:</strong> National average annual household income was found to be 233.79K PHP, with an average of only 4% of total household budget allocated to education.</li>
+      </ul>
+    `,
+    stack: ['RapidMiner', 'Power BI', 'Excel', 'Canva', 'Python', 'PyMuPDF'],
+    tasks: ['Data Integration', 'EDA', 'K-Means Clustering', 'AI-assisted Query Prototyping', 'Power BI Dashboard'],
+    metrics: [
+      { val: '26.2M', lbl: 'Enrollees' },
+      { val: '233K',  lbl: 'Avg Income (PHP)' },
+      { val: '4%',    lbl: 'Edu Budget Share' },
+      { val: '38.6x', lbl: 'STEM Private Likelihood' }
+    ],
+    refs: [
+      { label: 'Academic Paper (PDF)',      icon: '◈', file: 'assets/projects/data-science/homeEcon_schoolEnrollment-correlation/houseEcon-schoolEnrollment_academic-paper_compressed.pdf' },
+      { label: 'Analysis Results (PDF)',    icon: '◎', file: 'assets/projects/data-science/homeEcon_schoolEnrollment-correlation/houseEcon-schoolEnrollment-analysis_result.pdf' },
+      { label: 'Presentation Slides (PDF)',  icon: '◉', file: 'assets/projects/data-science/homeEcon_schoolEnrollment-correlation/houseEcon-schoolEnrollment-slides_compressed.pdf' },
+      { label: 'PSA FIES Dataset (Kaggle)',  icon: '⧉', url: 'https://www.kaggle.com/datasets/grosvenpaul/family-income-and-expenditure' },
+      { label: 'DepEd Enrollment Dataset (Kaggle)', icon: '⧉', url: 'https://www.kaggle.com/datasets/raiblaze/philippines-school-enrollment-data/data?select=ph_school_enrollment.csv' }
+    ],
+    slides: [
+      { ph: '▦', label: 'Title Slide: Study Overview',                   img: 'assets/projects/data-science/homeEcon_schoolEnrollment-correlation/slide-1.png' },
+      { ph: '◉', label: 'Research Gap & Context',                        img: 'assets/projects/data-science/homeEcon_schoolEnrollment-correlation/slide-2.png' },
+      { ph: '〜', label: 'Objectives & Findings: Enrollment Distribution', img: 'assets/projects/data-science/homeEcon_schoolEnrollment-correlation/slide-3.png' },
+      { ph: '⊙', label: 'Objectives & Findings: Correlation Analysis',     img: 'assets/projects/data-science/homeEcon_schoolEnrollment-correlation/slide-4.png' },
+      { ph: '◎', label: 'Objectives & Findings: SHS Strand Preferences',   img: 'assets/projects/data-science/homeEcon_schoolEnrollment-correlation/slide-5.png' },
+      { ph: '⊡', label: 'Objectives & Findings: Sector & Policy Insights', img: 'assets/projects/data-science/homeEcon_schoolEnrollment-correlation/slide-6.png' },
+      { ph: '⊞', label: 'Main Power BI Dashboard',                         img: 'assets/projects/data-science/homeEcon_schoolEnrollment-correlation/slide-7.png' },
+      { ph: '⟦', label: 'Policy Recommendations',                          img: 'assets/projects/data-science/homeEcon_schoolEnrollment-correlation/slide-8.png' }
+    ]
+  },
+  flood_control: {
+    label: 'Data Science · DPWH Projects Analysis',
+    title: 'DPWH Flood Control Projects: Spending & Performance Analysis',
+    period: 'Jul 2022 – May 2025',
+    thumb: 'assets/projects/data-science/flood-control/slide-6.png',
+    body: `
+      <p>An in-depth data science and visualization project analyzing 9,855 flood control projects implemented by the Department of Public Works and Highways (DPWH) across the Philippines. Sourced from <code>sumbongsapangulo.ph</code>, the project processes a consolidated contract dataset spanning from July 2022 to May 2025. By defining key metrics and designing interactive Power BI dashboards, the study evaluates annual budget utilization, regional funding equity, and contractor dominance/performance.</p>
+
+      <h2>Objectives</h2>
+      <ul>
+        <li><strong>Annual Spending Efficiency:</strong> Track the ratio between approved budget and actual contract costs per fiscal year to compute the Annual Budget Utilization Rate.</li>
+        <li><strong>Magnitude & Coverage:</strong> Audit the total project counts and contract costs to measure the overall scale of DPWH's flood mitigation operations.</li>
+        <li><strong>Contractor Performance Index:</strong> Rank 2,409 contractors based on project counts, total contract values, and completion records to evaluate market concentration.</li>
+        <li><strong>Regional Funding Equity:</strong> Analyze the distribution of financial resources across different administrative regions by computing the regional funding-to-project ratio.</li>
+        <li><strong>Budget Discrepancies:</strong> Compare approved budgets against final contract costs to detect potential spending irregularities or cost overruns.</li>
+      </ul>
+
+      <h2>Methodology & Process</h2>
+      <ul>
+        <li><strong>Data Cleaning & Profiling:</strong> Compiled project records from <code>sumbongsapangulo.ph</code>, normalized project locations, and validated financial attributes (approved budgets vs. contract costs).</li>
+        <li><strong>KPI Design:</strong> Implemented SMART objectives to define and calculate the Contractor Performance Index, Budget Utilization Rates, and Regional Funding Ratios.</li>
+        <li><strong>Power BI Dashboarding:</strong> Designed a unified, multi-page interactive dashboard featuring geo-spatial maps of projects, contractor league tables, and annual expenditure comparisons.</li>
+      </ul>
+
+      <h2>Key Findings</h2>
+      <ul>
+        <li><strong>Overall Magnitude:</strong> DPWH allocated a total of <strong>₱545.65 Billion</strong> across <strong>9,855 projects</strong>, involving <strong>2,409 unique contractors</strong>.</li>
+        <li><strong>Budget Discrepancy:</strong> Realized contract costs frequently diverged from approved budgets, highlighting opportunities for improved cost estimation and public bidding optimization.</li>
+        <li><strong>Geographic Concentration:</strong> Funding allocation showed significant regional disparities, indicating potential misalignment between regional flood vulnerability and budget distribution.</li>
+      </ul>
+    `,
+    stack: ['Power BI', 'Excel', 'Data Cleaning', 'Data Visualization'],
+    tasks: ['Data Cleaning', 'KPI Engineering', 'Power BI Dashboarding', 'Spatial Analysis'],
+    metrics: [
+      { val: '₱545.6B', lbl: 'Total Funding' },
+      { val: '9,855',   lbl: 'Projects' },
+      { val: '2,409',   lbl: 'Contractors' },
+      { val: '3 Years', lbl: 'Study Period' }
+    ],
+    refs: [
+      { label: 'Project PDF Report', icon: '◎', file: 'assets/projects/data-science/flood-control/dpwh-flood_control.pdf' }
+    ],
+    slides: [
+      { ph: '▦', label: 'Objective 1: Annual Budget Utilization Rate', img: 'assets/projects/data-science/flood-control/slide-1.png' },
+      { ph: '◉', label: 'Objective 2: Project Count & Total Funding',    img: 'assets/projects/data-science/flood-control/slide-2.png' },
+      { ph: '〜', label: 'Objective 3: Contractor Performance Index',     img: 'assets/projects/data-science/flood-control/slide-3.png' },
+      { ph: '⊙', label: 'Objective 4: Regional Funding Equity Analysis', img: 'assets/projects/data-science/flood-control/slide-4.png' },
+      { ph: '◎', label: 'Objective 5: Approved Budget vs. Contract Cost', img: 'assets/projects/data-science/flood-control/slide-5.png' },
+      { ph: '⊡', label: 'Power BI Dashboard: DPWH Flood Control Projects', img: 'assets/projects/data-science/flood-control/slide-6.png' }
+    ]
+  },
+  malaria: {
+    label: 'Data Science · Predictive Modeling',
+    title: 'Malaria Predictor & Symptom Profile Analysis',
+    period: 'Oct 2025',
+    thumb: 'assets/projects/data-science/malaria/slide-1.png',
+    body: `
+      <p>A data mining and predictive analytics project that builds a machine learning classifier to predict malaria risk and profiles symptom prevalence across patient cohorts. Following standard data mining methodologies in RapidMiner, the model utilizes clinical data from 1,622 patient records to classify diagnoses and ranks symptoms based on their predictive feature weights. The project also investigates how demographic factors (age, sex, residence) correlate with symptom severity and diagnosis outcomes.</p>
+
+      <h2>Objectives</h2>
+      <ul>
+        <li><strong>Diagnosis Balance:</strong> Assess malaria prevalence in the dataset by analyzing the ratio of positive vs. negative cases across 1,622 patients.</li>
+        <li><strong>Demographic Profiling:</strong> Group diagnosis outcomes and symptom severity across different ages, sexes, and residential areas to identify high-risk cohorts.</li>
+        <li><strong>Symptom Prevalence:</strong> Determine the overall symptom profile of malaria by analyzing the distribution of 11 distinct symptoms (fever, headache, vomiting, etc.) and average symptom counts.</li>
+        <li><strong>Feature Importance:</strong> Rank symptoms based on their mathematical weight/contribution in predicting positive malaria cases.</li>
+        <li><strong>Classifier Evaluation:</strong> Train and evaluate a Decision Tree classifier in RapidMiner to establish a high-accuracy, reliable diagnostic tool.</li>
+        <li><strong>Age Correlation:</strong> Analyze the relationship between patient age and symptom presentation to identify age-based clinical differences.</li>
+      </ul>
+
+      <h2>Methodology & Process</h2>
+      <ul>
+        <li><strong>Data Preprocessing:</strong> Handled missing values, filtered redundant columns (such as model confidence columns), and renamed attributes (e.g., Target to Diagnosis, confidence(true) to Malaria_Risk_Chance) for clear data representation.</li>
+        <li><strong>Decision Tree Classifier:</strong> Structured a model training pipeline with split validation (973 training records, 649 testing records) to generate a Decision Tree classifier.</li>
+        <li><strong>Model Evaluation:</strong> Computed confusion matrices, measuring overall accuracy, precision, and predicted vs. actual diagnosis ratios.</li>
+        <li><strong>Visualization Dashboard:</strong> Created an interactive Power BI dashboard to present patient demographics, symptom distribution, model weights, and performance metrics.</li>
+      </ul>
+
+      <h2>Key Findings</h2>
+      <ul>
+        <li><strong>Prevalence:</strong> The dataset of 1,622 patients contains 1,167 positive cases (71.95%) and 455 negative cases (28.05%), with males showing slightly higher positivity rates.</li>
+        <li><strong>Predictive Symptoms:</strong> Symptoms averaged 5.45 per patient. **Chest Pain** emerged as the strongest predictor, contributing approximately 20% to the malaria diagnosis prediction.</li>
+        <li><strong>Model Accuracy:</strong> The Decision Tree classifier achieved a high predictive accuracy of <strong>94.61%</strong> (Predicted Positive: 73%, Actual Positive: 72%).</li>
+        <li><strong>Age Consistency:</strong> The correlation analysis indicated that patient age has a negligible effect on the number of symptoms experienced, proving that malaria symptom presentation is highly consistent across age groups.</li>
+      </ul>
+    `,
+    stack: ['RapidMiner', 'Power BI', 'Excel', 'Data Mining', 'Decision Tree'],
+    tasks: ['Predictive Modeling', 'Data Preprocessing', 'Feature Importance Analysis', 'Power BI Dashboarding'],
+    metrics: [
+      { val: '94.6%',  lbl: 'Model Accuracy' },
+      { val: '1,622',  lbl: 'Patient Records' },
+      { val: '11',     lbl: 'Symptoms Scanned' },
+      { val: '20%',    lbl: 'Chest Pain Weight' }
+    ],
+    refs: [
+      { label: 'Midterm Lab Report (PDF)', icon: '◈', file: 'assets/projects/data-science/malaria/malaria-documentation.pdf' },
+      { label: 'Dashboard Report (PDF)',   icon: '◎', file: 'assets/projects/data-science/malaria/malaria-dashboard.pdf' },
+      { label: 'Malaria Dataset (Kaggle)', icon: '⧉', url: 'https://www.kaggle.com/datasets/programmer3/malaria-diagnosis-dataset/data' }
+    ],
+    slides: [
+      { ph: '▦', label: 'Title Slide & Project Overview',              img: 'assets/projects/data-science/malaria/slide-1.png' },
+      { ph: '◉', label: 'Disease Focus: Malaria Study Introduction',     img: 'assets/projects/data-science/malaria/slide-2.png' },
+      { ph: '〜', label: 'Overview of Project Objectives',                img: 'assets/projects/data-science/malaria/slide-3.png' },
+      { ph: '⊙', label: 'Objective 1: Case Distribution & Diagnoses',     img: 'assets/projects/data-science/malaria/slide-4.png' },
+      { ph: '◎', label: 'Objective 2: Demographic & Geographic Patterns', img: 'assets/projects/data-science/malaria/slide-5.png' },
+      { ph: '⊡', label: 'Objective 3: Patient Symptom Profiling',         img: 'assets/projects/data-science/malaria/slide-6.png' },
+      { ph: '⊞', label: 'Objective 4: Symptom Predictor Weights',         img: 'assets/projects/data-science/malaria/slide-7.png' },
+      { ph: '⟦', label: 'Objective 5: Predictive Model Accuracy',         img: 'assets/projects/data-science/malaria/slide-8.png' },
+      { ph: '⊠', label: 'Objective 6: Age vs. Symptom Counts',            img: 'assets/projects/data-science/malaria/slide-9.png' },
+      { ph: '⧇', label: 'Project Summary & Key Findings',                img: 'assets/projects/data-science/malaria/slide-10.png' },
+      { ph: '⧈', label: 'Data Source: Kaggle Dataset Link',              img: 'assets/projects/data-science/malaria/slide-11.png' }
     ]
   }
 };
+
