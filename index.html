@@ -1,646 +1,1141 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" data-theme="dark">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hans Jio Arca | Data Scientist & Software Engineer Portfolio</title>
-<meta name="description" content="Professional portfolio of Hans Jio Arca, a Data Scientist and Software Engineer based in Manila, Philippines. Specializing in data mining, machine learning, and backend database engineering.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hans Jio Arca | Data Scientist &amp; Software Engineer Portfolio</title>
+  <meta name="description"
+    content="Professional portfolio of Hans Jio Arca, a Data Scientist and Software Engineer based in Manila, Philippines. Specializing in data mining, machine learning, NLP, and backend database engineering.">
+  <meta name="author" content="Hans Jio Arca">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#111009">
+  <meta name="keywords"
+    content="data scientist, software engineer, NLP, machine learning, full-stack, Manila, Philippines, portfolio, Hans Jio Arca, RoBERTa, Python, PHP">
+  <!-- Canonical -->
+  <link rel="canonical" href="https://hansjio.github.io/" />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://hansjio.github.io/" />
+  <meta property="og:title" content="Hans Jio Arca | Data Scientist &amp; Software Engineer" />
+  <meta property="og:description"
+    content="Portfolio of Hans Jio Arca — data mining, ML models, NLP research, full-stack systems, and film photography. Based in Manila, Philippines." />
+  <meta property="og:image" content="https://hansjio.github.io/assets/images/profile/hero-pfp.jpg" />
+  <meta property="og:locale" content="en_PH" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Hans Jio Arca | Data Scientist &amp; Software Engineer" />
+  <meta name="twitter:description"
+    content="Portfolio of Hans Jio Arca — data mining, ML models, NLP research, full-stack systems, and film photography." />
+  <meta name="twitter:image" content="https://hansjio.github.io/assets/images/profile/hero-pfp.jpg" />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap">
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- JSON-LD Person Schema -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Hans Jio Arca",
+  "url": "https://hansjio.github.io/",
+  "jobTitle": "Data Scientist & Software Engineer",
+  "address": { "@type": "PostalAddress", "addressLocality": "Manila", "addressCountry": "PH" },
+  "email": "mailto:hansj.arca@gmail.com",
+  "sameAs": ["https://linkedin.com/in/hansjioarca", "https://github.com/hansjio"]
+}
+</script>
 </head>
+
 <body>
-<div id="grain"></div>
-<div id="cursor-ring"></div>
-<div id="cursor-dot"></div>
+  <div id="scroll-progress" aria-hidden="true"></div>
+  <a href="#main" class="skip-link">Skip to main content</a>
+  <div id="grain"></div>
+  <div id="cursor-ring"></div>
+  <div id="cursor-dot"></div>
 
-<!-- ══ GALLERY LIGHTBOX ══ -->
-<div id="gal-lb">
-  <button class="glb-close" id="glb-close">✕</button>
-  <div class="glb-inner">
-    <div class="glb-wrap" id="glb-wrap"></div>
-    <div class="glb-nav">
-      <button class="glb-arr" id="glb-prev">‹</button>
-      <button class="glb-arr" id="glb-next">›</button>
-    </div>
-    <div class="glb-cap" id="glb-cap"></div>
-    <div class="glb-count" id="glb-count"></div>
-  </div>
-</div>
-
-<!-- ══ PROJECT MODAL ══ -->
-<div id="proj-modal">
-  <div class="modal-backdrop" id="modal-backdrop"></div>
-  <div class="modal-panel">
-    <div class="modal-topbar">
-      <span class="modal-breadcrumb">Work / <span id="modal-breadcrumb-name">Project</span></span>
-      <button class="modal-close" id="modal-close-btn">✕</button>
-    </div>
-    <div class="modal-body-wrap">
-      <div class="modal-left">
-        <div class="modal-content" id="modal-content-area"></div>
+  <!-- ══ GALLERY LIGHTBOX ══ -->
+  <div id="gal-lb">
+    <button class="glb-close" id="glb-close" aria-label="Close lightbox">✕</button>
+    <div class="glb-inner">
+      <div class="glb-wrap" id="glb-wrap"></div>
+      <div class="glb-nav">
+        <button class="glb-arr" id="glb-prev" aria-label="Previous image">‹</button>
+        <button class="glb-arr" id="glb-next" aria-label="Next image">›</button>
       </div>
-      <div class="modal-right">
-        <div class="vis-topbar">
-          <span class="vis-label">Visuals</span>
-          <span class="vis-count-badge" id="modal-slide-count">—</span>
+      <div class="glb-cap" id="glb-cap"></div>
+      <div class="glb-count" id="glb-count"></div>
+    </div>
+  </div>
+
+  <!-- ══ PROJECT MODAL ══ -->
+  <div id="proj-modal">
+    <div class="modal-backdrop" id="modal-backdrop"></div>
+    <div class="modal-panel">
+      <div class="modal-topbar">
+        <span class="modal-breadcrumb">Work / <span id="modal-breadcrumb-name">Project</span></span>
+        <button class="modal-close" id="modal-close-btn" aria-label="Close project">✕</button>
+      </div>
+      <div class="modal-body-wrap">
+        <div class="modal-left">
+          <div class="modal-content" id="modal-content-area"></div>
         </div>
-        <div class="vis-slides-stack" id="modal-slides-stack"></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ══ REF VIEWER MODAL ══ -->
-<div id="ref-modal">
-  <button class="ref-modal-close" id="ref-modal-close">✕</button>
-  <div class="ref-modal-inner">
-    <div class="ref-modal-topbar">
-      <span class="ref-modal-label" id="ref-modal-label">Reference</span>
-      <a class="ref-modal-download" id="ref-modal-download" href="javascript:void(0)" target="_blank">↓ Open in new tab</a>
-    </div>
-    <div class="ref-modal-body" id="ref-modal-body"></div>
-  </div>
-</div>
-
-<!-- ══ BLOG MODAL ══ -->
-<div id="blog-modal">
-  <div class="blog-modal-backdrop" id="blog-modal-backdrop"></div>
-  <div class="blog-modal-panel">
-    <div class="blog-modal-topbar">
-      <span class="blog-modal-title-bar">Blog</span>
-      <button class="blog-modal-close" id="blog-modal-close">✕</button>
-    </div>
-    <div class="blog-modal-wrap">
-      <div class="blog-sidebar">
-        <div class="blog-sidebar-header">Post List</div>
-        <div id="blog-sidebar-list"></div>
-      </div>
-      <div class="blog-article-wrap">
-        <div class="blog-article" id="blog-article-content">
-          <div class="art-placeholder">
-            <div class="art-ph-ico">◎</div>
-            <div class="art-ph-txt">Select a post to read</div>
+        <div class="modal-right">
+          <div class="vis-topbar">
+            <span class="vis-label">Visuals</span>
+            <span class="vis-count-badge" id="modal-slide-count">—</span>
           </div>
+          <div class="vis-slides-stack" id="modal-slides-stack"></div>
         </div>
       </div>
     </div>
   </div>
-</div>
 
-<!-- HEADER -->
-<header id="site-header">
-  <div class="logo-strip">
-    <div class="logo-holes"><div class="logo-hole"></div><div class="logo-hole"></div><div class="logo-hole"></div></div>
-    <div><div class="logo-text">Hans Jio Arca</div><div class="logo-sub">Data Science · Software Engr. · Photography</div></div>
-  </div>
-  <div class="header-right">
-    <nav class="header-links">
-      <a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a href="#projects">Work</a>
-      <a href="#blog">Blogs</a>
-      <a href="#gallery">Photos</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <div class="theme-toggle" id="theme-toggle">
-      <div class="theme-knob"><span id="t-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></span></div>
-    </div>
-  </div>
-</header>
-
-<!-- FRAME NAV -->
-<nav id="frame-nav">
-  <a class="frame-dot active" href="#hero"       data-sec="hero">      <span class="frame-dot-label">01 / hero</span>       <span class="frame-pip"></span></a>
-  <a class="frame-dot"        href="#about"      data-sec="about">     <span class="frame-dot-label">02 / about</span>      <span class="frame-pip"></span></a>
-  <a class="frame-dot"        href="#experience" data-sec="experience"><span class="frame-dot-label">03 / exp</span>        <span class="frame-pip"></span></a>
-  <a class="frame-dot"        href="#projects"   data-sec="projects">  <span class="frame-dot-label">04 / work</span>       <span class="frame-pip"></span></a>
-  <a class="frame-dot"        href="#blog"       data-sec="blog">      <span class="frame-dot-label">05 / writing</span>    <span class="frame-pip"></span></a>
-  <a class="frame-dot"        href="#gallery"    data-sec="gallery">   <span class="frame-dot-label">06 / photos</span>     <span class="frame-pip"></span></a>
-  <a class="frame-dot"        href="#contact"    data-sec="contact">   <span class="frame-dot-label">07 / contact</span>    <span class="frame-pip"></span></a>
-</nav>
-
-<!-- ════════ HERO ════════ -->
-<section id="hero">
-  <div class="hero-film">
-    <div class="sprocket l">
-      <div class="spr-hole"></div><div class="spr-hole"></div><div class="spr-hole"></div><div class="spr-hole"></div>
-      <div class="spr-hole"></div><div class="spr-hole"></div><div class="spr-hole"></div><div class="spr-hole"></div><div class="spr-hole"></div><div class="spr-hole"></div>
-    </div>
-    <div class="sprocket r">
-      <div class="spr-hole"></div><div class="spr-hole"></div><div class="spr-hole"></div><div class="spr-hole"></div>
-      <div class="spr-hole"></div><div class="spr-hole"></div><div class="spr-hole"></div><div class="spr-hole"></div><div class="spr-hole"></div><div class="spr-hole"></div>
-    </div>
-    <div class="film-lines" id="filmLines"></div>
-    <div class="viewfinder">
-      <div class="vf-border-out"></div><div class="vf-border"></div>
-      <div class="vf-c tl"></div><div class="vf-c tr"></div><div class="vf-c bl"></div><div class="vf-c br"></div>
-      <div class="photo-inner">
-        <img 
-          src="assets/images/profile/hero-pfp.jpg" 
-          alt="Hans Jio Arca"
-          style="width:100%;height:100%;object-fit:cover;object-position:center top;"
-        />
+  <!-- ══ REF VIEWER MODAL ══ -->
+  <div id="ref-modal">
+    <button class="ref-modal-close" id="ref-modal-close" aria-label="Close reference viewer">✕</button>
+    <div class="ref-modal-inner">
+      <div class="ref-modal-topbar">
+        <span class="ref-modal-label" id="ref-modal-label">Reference</span>
+        <a class="ref-modal-download" id="ref-modal-download" href="javascript:void(0)" target="_blank">↓ Open in new
+          tab</a>
       </div>
-    </div>
-    <div class="film-meta">
-      <div class="film-code">HJA-2026<br>ISO-100<br>F/2.8 1/125</div>
-      <div class="exp-num">23</div>
+      <div class="ref-modal-body" id="ref-modal-body"></div>
     </div>
   </div>
-  <div class="hero-text">
-    <div class="eyebrow">Available for collaborations <span class="avail-dot"></span></div>
-    <h1 class="h-name">Hans Jio</h1>
-    <div class="h-name-sub">Arca</div>
-    <div class="h-divider"></div>
-    <p class="h-bio">Data scientist and software engineer who finds patterns in data the way he finds light in a scene — with patience, intention, and quiet curiosity.</p>
-    <div class="h-tags">
-      <span class="h-tag">Data Science</span><span class="h-tag">Machine Learning</span>
-      <span class="h-tag">Full-Stack</span><span class="h-tag">Systems</span><span class="h-tag">APIs</span>
-    </div>
-    <div class="h-cta">
-      <a href="#projects" class="btn-p">View Work</a>
-      <a href="#about" class="btn-g">About Me</a>
-    </div>
-    <div class="scroll-hint"><div class="scroll-ln"></div>Scroll to advance</div>
-  </div>
-</section>
 
-<!-- ════════ ABOUT ════════ -->
-<section id="about">
-  <div class="section-inner">
-    <div class="section-header reveal">
-      <span class="section-frame-num">02 /</span>
-      <h2 class="section-title">About</h2>
-      <div class="section-rule"></div>
-    </div>
-    <div class="about-grid">
-      <div>
-        <div class="q-block reveal rv1">
-          <p class="q-text">"I write code the way I shoot film — deliberately, frame by frame, knowing that what's left out matters as much as what's in."</p>
-          <span class="q-attr">— Hans Jio Arca</span>
-        </div>
-        <p class="about-body reveal rv2">Data scientist and software engineer based in Manila, Philippines, drawn to problems at the intersection of statistical reasoning and systems thinking. I've spent the last several years building ML models, data pipelines, and backend infrastructure that — when things go right — quietly disappear into the product and just <em>work</em>.<br><br>I care deeply about craft, legibility, and the kind of engineering that holds up long after the sprint ends. When I'm not in front of a terminal, I'm loading a camera.</p>
-        <!-- AFTER -->
-        <div class="reveal rv3">
-          <div class="gear-label" style="margin-top:0">Skillsets</div>
-          <div class="hobby-chips" style="margin-bottom:20px">
-            <span class="h-chip">Python</span>
-            <span class="h-chip">PHP</span>
-            <span class="h-chip">Web Development</span>
-            <span class="h-chip">SQL</span>
-            <span class="h-chip">Data Science</span>
-            <span class="h-chip">Machine Learning</span>
-            <span class="h-chip">Backend Engineering</span>
-            <span class="h-chip">APIs</span>
-            <span class="h-chip">AI-Assisted Dev</span>
-          </div>
-
-          <div class="gear-label">Interests & Hobbies</div>
-          <div class="hobby-chips">
-            <span class="h-chip film">Filming</span>
-            <span class="h-chip film">Cinemas</span>
-            <span class="h-chip film">Music</span>
-            <span class="h-chip film">Photography</span>
-            <span class="h-chip">Open Source</span>
-            <span class="h-chip">Mech Keyboards</span>
-            <span class="h-chip">Reading</span>
-            <span class="h-chip">Coffee</span>
-            <span class="h-chip">Hiking</span>
-          </div>
-        </div>
+  <!-- ══ BLOG MODAL ══ -->
+  <div id="blog-modal">
+    <div class="blog-modal-backdrop" id="blog-modal-backdrop"></div>
+    <div class="blog-modal-panel">
+      <div class="blog-modal-topbar">
+        <span class="blog-modal-title-bar">Blog</span>
+        <button class="blog-modal-close" id="blog-modal-close" aria-label="Close blog">✕</button>
       </div>
-      <div>
-        <div class="reveal rv1">
-          <div class="gear-label">Tech Gear</div>
-          <div class="gear-list">
-            <div class="gear-item"><span class="gear-icon">⌥</span><span class="gear-name">AMD Ryzen 5 5600X + RX6600XT</span><span class="gear-note">pc specs</span></div>
-            <div class="gear-item"><span class="gear-icon">🖱</span><span class="gear-name">Attack Shark X3</span><span class="gear-note">gaming mouse</span></div>
-            <div class="gear-item"><span class="gear-icon">◉</span><span class="gear-name">Koorui G2411P</span><span class="gear-note">main display</span></div>
-            <div class="gear-item"><span class="gear-icon">⚡</span><span class="gear-name">VS Code</span><span class="gear-note">editor</span></div>
-            <div class="gear-item"><span class="gear-icon">▦</span><span class="gear-name">Powershell + Bash</span><span class="gear-note">terminal</span></div>
-            <div class="gear-item"><span class="gear-icon">☁</span><span class="gear-name">AWS + Azure + Vercel</span><span class="gear-note">deploy targets</span></div>
-          </div>
+      <div class="blog-modal-wrap">
+        <div class="blog-sidebar">
+          <div class="blog-sidebar-header">Post List</div>
+          <div id="blog-sidebar-list"></div>
         </div>
-        <div class="reveal rv2" style="margin-top: 9px">
-          <div class="gear-label">Camera Gear</div>
-          <div class="gear-list">
-            <div class="gear-item"><span class="gear-icon">◎</span><span class="gear-name">Canon EOS 550d Stock Kit</span><span class="gear-note">primary body & lens</span></div>
-            <div class="gear-item"><span class="gear-icon">◎</span><span class="gear-name">Sony Cybershot DSC-W800</span><span class="gear-note">carry digicam</span></div>
-            <div class="gear-item"><span class="gear-icon">⊙</span><span class="gear-name">Sony Handycam HDR-CX160</span><span class="gear-note">main handycam</span></div>
-            <div class="gear-item"><span class="gear-icon">⊙</span><span class="gear-name">Sony Handycam DCR-SX41</span><span class="gear-note">secondary handycam</span></div>
-            <div class="gear-item"><span class="gear-icon">⬡</span><span class="gear-name">iPhone 14 Pro Max</span><span class="gear-note">for convenience lol</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ════════ EXPERIENCE ════════ -->
-<section id="experience">
-  <div class="section-inner">
-    <div class="section-header reveal">
-      <span class="section-frame-num">03 /</span>
-      <h2 class="section-title">Experience & Education</h2>
-      <div class="section-rule"></div>
-    </div>
-    <div class="exp-edu-grid">
-      <div>
-        <div class="sub-label reveal">Work & Professional History</div>
-        <div class="timeline">
-
-          <div class="tl-item reveal rv1">
-            <div class="tl-pip"></div>
-            <div class="tl-period">May 2025 – Sep 2025</div>
-            <div class="tl-role">Backend & Database Developer (Contract)</div>
-            <div class="tl-company">i-Bizness Consultancy · Manila, PH (Remote)</div>
-            <p class="tl-desc">Engineered database schemas and REST APIs for a multi-tenant ERP & POS system across 4 retail branches. Designed backend database triggers for the "Smart Recipe" costing engine, and built dynamic aggregation queries for sales analytics reports. Accelerated debugging and documentation cycles using AI-assisted tooling (Claude, Cursor) to optimize development velocity.</p>
-            <div class="tl-tags"><span class="tl-tag">Node.js</span><span class="tl-tag">Express</span><span class="tl-tag">MySQL</span><span class="tl-tag">REST API</span><span class="tl-tag">Database Design</span><span class="tl-tag">AI-Augmented Dev</span></div>
-          </div>
-
-          <div class="tl-item reveal rv2">
-            <div class="tl-pip"></div>
-            <div class="tl-period">Jan 2025 – May 2025</div>
-            <div class="tl-role">Web Systems Developer & Client Liaison</div>
-            <div class="tl-company">Barangay Lupon Tagapamayapa · Manila, PH</div>
-            <p class="tl-desc">Led development of a full-stack case-logging web system for civil and criminal case management for a municipal government project. Served as primary point of contact between the dev team and local government stakeholders, conducting walkthroughs and training sessions with barangay staff.</p>
-            <div class="tl-tags"><span class="tl-tag">HTML/CSS</span><span class="tl-tag">JavaScript</span><span class="tl-tag">PHP</span><span class="tl-tag">MySQL</span><span class="tl-tag">GitHub</span></div>
-          </div>
-
-          <div class="tl-item reveal rv3">
-            <div class="tl-pip"></div>
-            <div class="tl-period">Aug 2024 – May 2025</div>
-            <div class="tl-role">Treasurer</div>
-            <div class="tl-company">Adamson Computer Science Society · Manila, PH</div>
-            <p class="tl-desc">Managed the organization's full academic year budget across 10+ events, overseeing income tracking, expense reporting, and reimbursements. Automated financial tracking via Excel and Google Sheets, and analyzed past data to forecast event costs and optimize budget allocations.</p>
-            <div class="tl-tags"><span class="tl-tag">Excel</span><span class="tl-tag">Google Sheets</span><span class="tl-tag">Data Analysis</span><span class="tl-tag">Budget Management</span></div>
-          </div>
-
-          <div class="tl-item reveal rv4">
-            <div class="tl-pip"></div>
-            <div class="tl-period">Aug 2023 – May 2024</div>
-            <div class="tl-role">Junior Officer</div>
-            <div class="tl-company">Adamson Computer Science Society · Manila, PH</div>
-            <p class="tl-desc">Assisted executive officers in organizing student activities and coordinating internal operations. Acted as liaison between the organization and CS students for announcements and feedback. Shadowed senior officers to learn organizational management and event planning.</p>
-            <div class="tl-tags"><span class="tl-tag">Event Planning</span><span class="tl-tag">Leadership</span><span class="tl-tag">Coordination</span></div>
-          </div>
-
-        </div>
-      </div>
-      <div>
-        <div class="sub-label reveal">Education</div>
-        <div class="edu-stack reveal rv1">
-
-          <div class="edu-card">
-            <div class="edu-deg">B.S. Computer Science, Major in Data Science</div>
-            <div class="edu-school">Adamson University</div>
-            <div class="edu-period">Aug 2023 – 2027</div>
-            <p class="edu-detail">1.07 GWA · Consistent Dean's Lister</p>
-          </div>
-
-          <div class="edu-card">
-            <div class="edu-deg">DataCamp Scholar</div>
-            <div class="edu-school">DataCamp (via DataEngineering Philippines)</div>
-            <div class="edu-period">Mar 2025 – Present</div>
-            <p class="edu-detail">Recipient of the DataCamp scholarship sponsored by the DataEngineering Philippines community. Actively completing learning tracks and delivering team assessments and assignments on time.</p>
-          </div>
-
-          <div class="edu-card">
-            <div class="edu-deg">CS50x: Introduction to Computer Science</div>
-            <div class="edu-school">Harvard University · edX</div>
-            <div class="edu-period">2024 – 2025</div>
-            <p class="edu-detail">Completed Harvard's flagship CS course covering algorithms, data structures, web development, and more.</p>
-          </div>
-
-        </div>
-
-        <div class="sub-label reveal" style="margin-top:40px">Certifications</div>
-        <div class="cert-stack reveal rv1">
-
-          <div class="cert-card">
-            <div class="cert-body">
-              <div class="cert-name">IT Specialist — Databases</div>
-              <div class="cert-issuer">Certiport · Pearson VUE</div>
-            </div>
-            <div class="cert-actions">
-              <a href="https://www.credly.com/badges/cd841ed5-c863-43f0-b7db-2f748a24b59b" target="_blank" class="cert-btn cert-link">Verify ↗</a>
+        <div class="blog-article-wrap">
+          <div class="blog-article" id="blog-article-content">
+            <div class="art-placeholder">
+              <div class="art-ph-ico">◎</div>
+              <div class="art-ph-txt">Select a post to read</div>
             </div>
           </div>
-
-          <div class="cert-card">
-            <div class="cert-body">
-              <div class="cert-name">IT Specialist — Networking</div>
-              <div class="cert-issuer">Certiport · Pearson VUE</div>
-            </div>
-            <div class="cert-actions">
-              <a href="https://www.credly.com/badges/22e7f184-abc8-42a6-88ce-e33b74c8f55d" target="_blank" class="cert-btn cert-link">Verify ↗</a>
-            </div>
-          </div>
-
         </div>
       </div>
     </div>
   </div>
-</section>
 
-<!-- ════════ PROJECTS ════════ -->
-<section id="projects">
-  <div class="section-inner">
-    <div class="section-header reveal">
-      <span class="section-frame-num">04 /</span>
-      <h2 class="section-title">Selected Work</h2>
-      <div class="section-rule"></div>
-      <div class="section-meta" id="project-count"></div>
-    </div>
-    <p class="projects-intro reveal rv1">I build full-stack web systems and data-driven applications — from government-deployed record management systems to multi-branch point of sale platforms. Most of my work sits at the intersection of practical software engineering and real-world problem solving, built for actual users with actual constraints.</p>
-    <div class="proj-toggle reveal rv1">
-      <button class="t-btn active" data-tab="ds">Data Science</button>
-      <button class="t-btn" data-tab="se">Software Engineering</button>
-      <button class="t-btn" data-tab="all">All</button>
-    </div>
-    <div class="proj-panel on" id="tab-ds">
-      <div class="lab-grid reveal-grid reveal rv1">
-        <div class="lab-card" data-project="homeEcon_schoolEnrollment-correlation">
-          <div class="lab-num-badge">DS-001 · Dec 2025</div>
-          <div class="lab-card-title">Household Economics & School Enrollment</div>
-          <div class="lab-card-hyp">Hypothesis: Household food share is the strongest predictor of Senior High School track choice</div>
-          <p class="lab-card-desc">Regional correlation study mapping household FIES socioeconomic factors against DepEd school participation and strand choice across the Philippines.</p>
-          <div class="lab-card-stack">
-            <span class="lab-card-tag">RapidMiner</span>
-            <span class="lab-card-tag">Power BI</span>
-            <span class="lab-card-tag">Excel</span>
-            <span class="lab-card-tag">Python</span>
-          </div>
-          <div class="lab-metrics">
-            <div class="metric"><div class="m-val">26.2M</div><div class="m-lbl">Enrollees</div></div>
-            <div class="metric"><div class="m-val">233K</div><div class="m-lbl">Avg Income</div></div>
-            <div class="metric"><div class="m-val">38.6x</div><div class="m-lbl">STEM Priv Lkl</div></div>
-          </div>
-        </div>
-        <div class="lab-card" data-project="flood_control">
-          <div class="lab-num-badge">DS-002 · May 2025</div>
-          <div class="lab-card-title">DPWH Flood Control Projects</div>
-          <div class="lab-card-hyp">Hypothesis: DPWH project contract costs significantly deviate from approved budgets</div>
-          <p class="lab-card-desc">Socioeconomic audit of 9,855 national flood control projects from sumbongsapangulo.ph, analyzing spending efficiency and regional funding equity via Power BI.</p>
-          <div class="lab-card-stack">
-            <span class="lab-card-tag">Power BI</span>
-            <span class="lab-card-tag">Excel</span>
-            <span class="lab-card-tag">Data Cleaning</span>
-          </div>
-          <div class="lab-metrics">
-            <div class="metric"><div class="m-val">₱545.6B</div><div class="m-lbl">Total Cost</div></div>
-            <div class="metric"><div class="m-val">9,855</div><div class="m-lbl">Projects</div></div>
-            <div class="metric"><div class="m-val">2,409</div><div class="m-lbl">Contractors</div></div>
-          </div>
-        </div>
-        <div class="lab-card" data-project="malaria">
-          <div class="lab-num-badge">DS-003 · Oct 2025</div>
-          <div class="lab-card-title">Malaria Diagnosis & Symptom Profile</div>
-          <div class="lab-card-hyp">Hypothesis: Chest pain is the most significant clinical predictor of malaria risk</div>
-          <p class="lab-card-desc">Clinical predictive modeling of 1,622 patient records using a RapidMiner Decision Tree classifier to determine malaria risk chance and symptom importance weights.</p>
-          <div class="lab-card-stack">
-            <span class="lab-card-tag">RapidMiner</span>
-            <span class="lab-card-tag">Power BI</span>
-            <span class="lab-card-tag">Excel</span>
-          </div>
-          <div class="lab-metrics">
-            <div class="metric"><div class="m-val">94.6%</div><div class="m-lbl">Accuracy</div></div>
-            <div class="metric"><div class="m-val">1,622</div><div class="m-lbl">Records</div></div>
-            <div class="metric"><div class="m-val">11</div><div class="m-lbl">Symptoms</div></div>
-          </div>
-        </div>
+  <!-- HEADER -->
+  <header id="site-header">
+    <div class="logo-strip">
+      <div class="logo-holes">
+        <div class="logo-hole"></div>
+        <div class="logo-hole"></div>
+        <div class="logo-hole"></div>
       </div>
-    </div>
-    <div class="proj-panel" id="tab-se">
-      <div class="proj-grid reveal-grid reveal rv1">
-        <div class="proj-card" data-project="lupon">
-          <div class="card-label">Full-Stack · Academic Service Learning</div>
-          <div class="card-title">Lupong Tagapamayapa CCRMS</div>
-          <div class="card-period">Jan 2025 – May 2025</div>
-          <p class="card-desc">Full-stack criminal and civil cases records management system built and deployed for Barangay Molino III, Bacoor, Cavite. Role-based access, case tracking, dashboard analytics, and encrypted backups.</p>
-          <div class="card-stack">
-            <span class="card-tag">PHP</span>
-            <span class="card-tag">MySQL</span>
-            <span class="card-tag">JavaScript</span>
-            <span class="card-tag">HTML/CSS</span>
-            <span class="card-tag">XAMPP</span>
-          </div>
-          <div class="card-open"><span>⊞</span> Open Case Study</div>
-          <div class="card-thumb" style="background-image:url('assets/projects/web-science/lupon/dashboard.png')"></div>
-        </div>
-        <div class="proj-card" data-project="carinderia">
-          <div class="card-label">Full-Stack · Freelance</div>
-          <div class="card-title">Carinderia POS</div>
-          <div class="card-period">2025</div>
-          <p class="card-desc">Multi-branch point of sale system for a food business with a central kitchen and three retail locations. Features real-time inventory, automated recipe costing, branch analytics, and role-based access control.</p>
-          <div class="card-stack">
-            <span class="card-tag">React</span>
-            <span class="card-tag">Node.js</span>
-            <span class="card-tag">MySQL</span>
-            <span class="card-tag">JavaScript</span>
-            <span class="card-tag">Chart.js</span>
-          </div>
-          <div class="card-open"><span>⊞</span> Open Case Study</div>
-          <div class="card-thumb" style="background-image:url('assets/projects/web-science/carinderia/pos.png')"></div>
-        </div>
-      </div>
-    </div>
-    <div class="proj-panel" id="tab-all">
-      <div class="proj-grid reveal-grid reveal rv1">
-        <div class="lab-card featured-card" data-project="homeEcon_schoolEnrollment-correlation">
-          <div class="lab-num-badge">DS-001 · Dec 2025</div>
-          <div class="lab-card-title">Household Economics & School Enrollment</div>
-          <div class="lab-card-hyp">Hypothesis: Household food share is the strongest predictor of Senior High School track choice</div>
-          <p class="lab-card-desc">Regional correlation study mapping household FIES socioeconomic factors against DepEd school participation and strand choice across the Philippines.</p>
-          <div class="lab-card-stack">
-            <span class="lab-card-tag">RapidMiner</span>
-            <span class="lab-card-tag">Power BI</span>
-            <span class="lab-card-tag">Excel</span>
-            <span class="lab-card-tag">Python</span>
-          </div>
-          <div class="lab-metrics">
-            <div class="metric"><div class="m-val">26.2M</div><div class="m-lbl">Enrollees</div></div>
-            <div class="metric"><div class="m-val">233K</div><div class="m-lbl">Avg Income</div></div>
-            <div class="metric"><div class="m-val">38.6x</div><div class="m-lbl">STEM Priv Lkl</div></div>
-          </div>
-        </div>
-        <div class="lab-card" data-project="flood_control">
-          <div class="lab-num-badge">DS-002 · May 2025</div>
-          <div class="lab-card-title">DPWH Flood Control Projects</div>
-          <div class="lab-card-hyp">Hypothesis: DPWH project contract costs significantly deviate from approved budgets</div>
-          <p class="lab-card-desc">Socioeconomic audit of 9,855 national flood control projects from sumbongsapangulo.ph, analyzing spending efficiency and regional funding equity via Power BI.</p>
-          <div class="lab-card-stack">
-            <span class="lab-card-tag">Power BI</span>
-            <span class="lab-card-tag">Excel</span>
-            <span class="lab-card-tag">Data Cleaning</span>
-          </div>
-          <div class="lab-metrics">
-            <div class="metric"><div class="m-val">₱545.6B</div><div class="m-lbl">Total Cost</div></div>
-            <div class="metric"><div class="m-val">9,855</div><div class="m-lbl">Projects</div></div>
-            <div class="metric"><div class="m-val">2,409</div><div class="m-lbl">Contractors</div></div>
-          </div>
-        </div>
-        <div class="lab-card" data-project="malaria">
-          <div class="lab-num-badge">DS-003 · Oct 2025</div>
-          <div class="lab-card-title">Malaria Diagnosis & Symptom Profile</div>
-          <div class="lab-card-hyp">Hypothesis: Chest pain is the most significant clinical predictor of malaria risk</div>
-          <p class="lab-card-desc">Clinical predictive modeling of 1,622 patient records using a RapidMiner Decision Tree classifier to determine malaria risk chance and symptom importance weights.</p>
-          <div class="lab-card-stack">
-            <span class="lab-card-tag">RapidMiner</span>
-            <span class="lab-card-tag">Power BI</span>
-            <span class="lab-card-tag">Excel</span>
-          </div>
-          <div class="lab-metrics">
-            <div class="metric"><div class="m-val">94.6%</div><div class="m-lbl">Accuracy</div></div>
-            <div class="metric"><div class="m-val">1,622</div><div class="m-lbl">Records</div></div>
-            <div class="metric"><div class="m-val">11</div><div class="m-lbl">Symptoms</div></div>
-          </div>
-        </div>
-        <div class="lab-card" data-project="lupon">
-          <div class="lab-num-badge">SE-001 · Jan – May 2025</div>
-          <div class="lab-card-title">Lupong Tagapamayapa CCRMS</div>
-          <div class="lab-card-hyp">Full-Stack · Academic Service Learning</div>
-          <p class="lab-card-desc">Full-stack criminal and civil cases records management system built and deployed for Barangay Molino III, Bacoor, Cavite. Role-based access, case tracking, dashboard analytics, and encrypted backups.</p>
-          <div class="lab-card-stack">
-            <span class="lab-card-tag">PHP</span>
-            <span class="lab-card-tag">MySQL</span>
-            <span class="lab-card-tag">JavaScript</span>
-            <span class="lab-card-tag">HTML/CSS</span>
-            <span class="lab-card-tag">XAMPP</span>
-          </div>
-          <div class="lab-metrics">
-            <div class="metric"><div class="m-val">5</div><div class="m-lbl">Modules</div></div>
-            <div class="metric"><div class="m-val">RBAC</div><div class="m-lbl">Access Control</div></div>
-            <div class="metric"><div class="m-val">Live</div><div class="m-lbl">Deployed</div></div>
-          </div>
-        </div>
-        <div class="lab-card" data-project="carinderia">
-          <div class="lab-num-badge">SE-002 · 2025</div>
-          <div class="lab-card-title">Carinderia POS</div>
-          <div class="lab-card-hyp">Full-Stack · Freelance</div>
-          <p class="lab-card-desc">Multi-branch point of sale system for a food business with a central kitchen and three retail locations. Features real-time inventory, automated recipe costing, branch analytics, and role-based access control.</p>
-          <div class="lab-card-stack">
-            <span class="lab-card-tag">React</span>
-            <span class="lab-card-tag">Node.js</span>
-            <span class="lab-card-tag">MySQL</span>
-            <span class="lab-card-tag">JavaScript</span>
-            <span class="lab-card-tag">Chart.js</span>
-          </div>
-          <div class="lab-metrics">
-            <div class="metric"><div class="m-val">3</div><div class="m-lbl">Branches</div></div>
-            <div class="metric"><div class="m-val">React</div><div class="m-lbl">Frontend</div></div>
-            <div class="metric"><div class="m-val">Node</div><div class="m-lbl">Backend</div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ════════ BLOG / WRITING ════════ -->
-<section id="blog">
-  <div class="section-inner" style="padding-bottom:0">
-    <div class="section-header reveal">
-      <span class="section-frame-num">05 /</span>
-      <h2 class="section-title">Writing</h2>
-      <div class="section-rule"></div>
-    </div>
-    <p class="blog-intro reveal rv1">Notes on engineering, data, film photography, and the occasional thing that has nothing to do with either.</p>
-  </div>
-  <div style="padding:0 64px 0;max-width:1160px;margin:0 auto" class="reveal rv2 visible">
-    <div class="blog-list reveal-grid visible">
-      <div class="blog-row featured" data-post="homeEcon-study">
-        <span class="blog-row-date">Dec 15, 2025</span>
-        <div class="blog-row-main"><div class="blog-row-title">Beyond the Data: Why I Studied Household Economics & School Enrollment in the Philippines</div><div class="blog-row-excerpt">A deeply personal reflection on FIES and DepEd datasets — and why food share is the strongest predictor of basic education track choices.</div></div>
-        <div class="blog-row-meta"><span class="blog-feat-badge">Latest</span><span class="blog-cat">Data Science</span><span class="blog-arr">→</span></div>
-      </div>
-    </div>
-    <button class="blog-more-btn reveal rv3" id="open-blog-modal">Browse All Posts → 1 total</button>
-  </div>
-</section>
-
-<!-- ════════ PHOTOGRAPHY GALLERY ════════ -->
-<section id="gallery">
-  <div class="section-inner" style="padding-bottom:24px">
-    <div class="section-header reveal">
-      <span class="section-frame-num">06 /</span>
-      <h2 class="section-title">Through the Lens</h2>
-      <div class="section-rule"></div>
-    </div>
-    <p class="gallery-intro reveal rv1">The "Film" look shot mainly on the streets of Makati, Manila, and wherever a roll takes me. Mostly shot in RAW using my DSLR, sometimes digicams, camcorders, and my iphone for convenience. Lightroom baffles me!</p>
-    <p class="gal-drag-hint reveal rv2" style="margin-bottom:8px">Drag to scroll · Click/Tap to enlarge</p>
-    </div>
-  <div class="sprocket-edge" id="spr-top"></div>
-  <div class="gallery-stage">
-    <div class="gallery-track" id="gallery-track">
-      <!-- JS will populate this -->
-    </div>
-  </div>
-  <div class="sprocket-edge" id="spr-bot"></div>
-</section>
-
-<!-- ════════ CONTACT ════════ -->
-<section id="contact">
-  <div class="section-inner">
-    <div class="section-header reveal">
-      <span class="section-frame-num">07 /</span>
-      <h2 class="section-title">Get in Touch</h2>
-      <div class="section-rule"></div>
-    </div>
-    <div class="contact-grid">
       <div>
-        <div class="contact-info-label reveal">Direct Lines</div>
-        <p class="contact-tagline reveal rv1">Whether it's a project, a role, or just a conversation worth having — the shutter's always open.</p>
-        <div class="contact-cards reveal rv2">
-          <a href="mailto:hansj.arca@gmail.com" class="c-card"><div class="c-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg></div><div class="c-card-body"><span class="c-card-label">Email</span><span class="c-card-value">hansj.arca@gmail.com</span><span class="c-card-sub">Preferred for project inquiries</span></div><span class="c-card-arr">→</span></a>
-          <a href="https://linkedin.com/in/hansjioarca" target="_blank" class="c-card"><div class="c-card-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div><div class="c-card-body"><span class="c-card-label">LinkedIn</span><span class="c-card-value">in/hansjioarca</span><span class="c-card-sub">Open to connection requests</span></div><span class="c-card-arr">→</span></a>
-          <a href="https://github.com/hansjio" target="_blank" class="c-card"><div class="c-card-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg></div><div class="c-card-body"><span class="c-card-label">GitHub</span><span class="c-card-value">github.com/hansjio</span><span class="c-card-sub">Code, side projects, experiments</span></div><span class="c-card-arr">→</span></a>
-          <div class="c-card" style="cursor:default"><div class="c-card-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div><div class="c-card-body"><span class="c-card-label">Response Time</span><span class="c-card-value">Within 48 hours</span><span class="c-card-sub">Philippine Standard Time (UTC+8)</span></div></div>
-        </div>
-        <div class="avail-strip reveal rv3"><div class="avail-light"></div><div class="avail-strip-text"><strong>Currently available</strong> for freelance, contract, and full-time remote roles. Open to relocation for the right opportunity.</div></div>
-        <div class="contact-location reveal rv4"><div class="loc-dot"></div>Manila, Philippines</div>
-      </div>
-      <div class="reveal rv2">
-        <div class="contact-form-label">Send a Message</div>
-        <p class="cf-note">Have anything you want to say? Fill this out and I'll get back to you. Let's chat!</p>
-        <form id="contact-form" action="https://formspree.io/f/mpqbqaap" method="POST" target="_blank">
-          <input type="hidden" name="subject" id="cf-subject" />
-          <div class="cf-row">
-            <div class="cf-field"><label class="cf-label">Name</label><input class="cf-input" id="cf-name" name="name" type="text" placeholder="Your name" required /></div>
-            <div class="cf-field"><label class="cf-label">Email</label><input class="cf-input" id="cf-email" name="email" type="email" placeholder="your@email.com" required /></div>
-          </div>
-          <div class="cf-field">
-            <label class="cf-label">Subject — what's this about?</label>
-            <div class="cf-subject-tags">
-              <button type="button" class="cf-stag" data-tag="Freelance / Contract">Freelance / Contract</button>
-              <button type="button" class="cf-stag" data-tag="Full-time Role">Full-time Role</button>
-              <button type="button" class="cf-stag" data-tag="Open Source">Open Source</button>
-              <button type="button" class="cf-stag" data-tag="Photography">Photography</button>
-              <button type="button" class="cf-stag" data-tag="Just Saying Hi">Just Saying Hi</button>
-              <button type="button" class="cf-stag cf-others-btn" id="cf-others-btn">Others</button>
-            </div>
-            <input type="text" class="cf-input cf-others" id="cf-others" placeholder="Specify other subject..." style="display:none;" />
-          </div>
-          <div class="cf-field"><label class="cf-label">Message</label><textarea class="cf-input" id="cf-msg" name="message" rows="6" placeholder="Tell me what you're working on, what you need, or just what's on your mind." required></textarea></div>
-          <button type="submit" class="cf-submit">Send Message <span class="cf-submit-ico">→</span></button>
-        </form>
-        <p class="cf-disclaimer">This form is powered by Formspree.</p>
+        <div class="logo-text">Hans Jio Arca</div>
+        <div class="logo-sub">Data Science · Software Engr. · Photography</div>
       </div>
     </div>
-  </div>
-</section>
+    <div class="header-right">
+      <nav class="header-links">
+        <a href="#projects">Work</a>
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#blog" style="display: none;">Blogs</a>
+        <a href="#faq">FAQ</a>
+        <a href="#gallery">Photos</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="theme-toggle" id="theme-toggle">
+        <div class="theme-knob"><span id="t-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg></span></div>
+      </div>
+    </div>
+  </header>
 
-<footer>
-  <div class="ft-l">Hans Jio Arca<br><span style="color:var(--text-mute)">Data Scientist/Analyst, Software Engineer, & Hobby Photographer</span></div>
-  <div class="ft-c"><div class="ft-frames"><div class="ft-frame"></div><div class="ft-frame"></div><div class="ft-frame"></div><div class="ft-frame"></div><div class="ft-frame"></div><div class="ft-frame"></div><div class="ft-frame"></div></div>© 2026 · Crafted frame by frame</div>
-  <div class="ft-r">Quezon City, Philippines<br><span style="color:var(--amber-dim)">Open to remote & relocation</span></div>
-</footer>
+  <!-- FRAME NAV -->
+  <nav id="frame-nav">
+    <a class="frame-dot active" href="#hero" data-sec="hero"> <span class="frame-dot-label">01 / hero</span> <span
+        class="frame-pip"></span></a>
+    <a class="frame-dot" href="#projects" data-sec="projects"> <span class="frame-dot-label">02 / work</span> <span
+        class="frame-pip"></span></a>
+    <a class="frame-dot" href="#about" data-sec="about"> <span class="frame-dot-label">03 / about</span> <span
+        class="frame-pip"></span></a>
+    <a class="frame-dot" href="#experience" data-sec="experience"><span class="frame-dot-label">04 / exp</span> <span
+        class="frame-pip"></span></a>
+    <a class="frame-dot" href="#blog" data-sec="blog" style="display: none;"> <span class="frame-dot-label">05 / writing</span> <span
+        class="frame-pip"></span></a>
+    <a class="frame-dot" href="#faq" data-sec="faq"> <span class="frame-dot-label">05 / faq</span> <span class="frame-pip"></span></a>
+    <a class="frame-dot" href="#gallery" data-sec="gallery"> <span class="frame-dot-label">06 / photos</span> <span class="frame-pip"></span></a>
+    <a class="frame-dot" href="#contact" data-sec="contact"> <span class="frame-dot-label">07 / contact</span> <span class="frame-pip"></span></a>
+  </nav>
 
-<script src="data/projects.js"></script>
-<script src="data/blog-posts.js"></script>
-<script src="data/gallery-data.js"></script>
-<script src="js/app.js"></script>
+  <main id="main">
+    <!-- ════════ HERO ════════ -->
+    <section id="hero">
+    <div class="hero-film">
+      <div class="sprocket l">
+        <div class="spr-hole"></div>
+        <div class="spr-hole"></div>
+        <div class="spr-hole"></div>
+        <div class="spr-hole"></div>
+        <div class="spr-hole"></div>
+        <div class="spr-hole"></div>
+        <div class="spr-hole"></div>
+        <div class="spr-hole"></div>
+        <div class="spr-hole"></div>
+        <div class="spr-hole"></div>
+      </div>
+      <div class="sprocket r">
+        <div class="spr-hole"></div>
+        <div class="spr-hole"></div>
+        <div class="spr-hole"></div>
+        <div class="spr-hole"></div>
+        <div class="spr-hole"></div>
+        <div class="spr-hole"></div>
+        <div class="spr-hole"></div>
+        <div class="spr-hole"></div>
+        <div class="spr-hole"></div>
+        <div class="spr-hole"></div>
+      </div>
+      <div class="film-lines" id="filmLines"></div>
+      <div class="viewfinder">
+        <div class="vf-border-out"></div>
+        <div class="vf-border"></div>
+        <div class="vf-c tl"></div>
+        <div class="vf-c tr"></div>
+        <div class="vf-c bl"></div>
+        <div class="vf-c br"></div>
+        <div class="photo-inner">
+          <img src="assets/images/profile/hero-pfp.jpg" alt="Hans Jio Arca — portrait photograph" width="480"
+            height="640" fetchpriority="high" loading="eager" decoding="async"
+            style="width:100%;height:100%;object-fit:cover;object-position:center top;" />
+        </div>
+      </div>
+      <div class="film-meta">
+        <div class="film-code">HJA-2026<br>ISO-100<br>F/2.8 1/125</div>
+        <div class="exp-num">23</div>
+      </div>
+    </div>
+    <div class="hero-text">
+      <div class="eyebrow">Available for collaborations <span class="avail-dot"></span></div>
+      <h1 class="h-name">Hans Jio</h1>
+      <div class="h-name-sub">Arca</div>
+      <div class="h-divider"></div>
+      <p class="h-bio">Data scientist and software engineer who finds patterns in data the way he finds light in a scene
+        — with patience, intention, and quiet curiosity.</p>
+      <div class="h-tags">
+        <span class="h-tag">Data Science</span><span class="h-tag">Machine Learning</span>
+        <span class="h-tag">Full-Stack</span><span class="h-tag">Systems</span><span class="h-tag">APIs</span>
+      </div>
+      <div class="h-cta">
+        <a href="#projects" class="btn-p">View Work</a>
+        <a href="#about" class="btn-g">About Me</a>
+      </div>
+      <div class="scroll-hint">
+        <div class="scroll-ln"></div>Scroll to advance
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ PROJECTS ════════ -->
+  <section id="projects">
+    <div class="section-inner">
+      <div class="section-header reveal">
+        <span class="section-frame-num">02 /</span>
+        <h2 class="section-title">Selected Work</h2>
+        <div class="section-rule"></div>
+        <div class="section-meta" id="project-count"></div>
+      </div>
+      <p class="projects-intro reveal rv1">I build full-stack web systems and data-driven applications — from
+        government-deployed record management systems to multi-branch point of sale platforms. Most of my work sits at
+        the intersection of practical software engineering and real-world problem solving, built for actual users with
+        actual constraints.</p>
+      <div class="proj-toggle reveal rv1">
+        <button class="t-btn active" data-tab="ds">Data Science / Analytics</button>
+        <button class="t-btn" data-tab="se">Software Engineering</button>
+        <button class="t-btn" data-tab="all">All</button>
+      </div>
+      <div class="proj-panel on" id="tab-ds">
+        <div class="lab-grid reveal-grid reveal rv1">
+          <div class="lab-card" data-project="homeEcon_schoolEnrollment-correlation">
+            <div class="lab-num-badge">DS-001 · Dec 2025</div>
+            <div class="lab-card-title">Household Economics & School Enrollment</div>
+            <div class="lab-card-hyp">Hypothesis: Household food share is the strongest predictor of Senior High School
+              track choice</div>
+            <p class="lab-card-desc">Regional correlation study mapping household FIES socioeconomic factors against
+              DepEd school participation and strand choice across the Philippines.</p>
+            <div class="lab-card-stack">
+              <span class="lab-card-tag">RapidMiner</span>
+              <span class="lab-card-tag">Power BI</span>
+              <span class="lab-card-tag">Excel</span>
+              <span class="lab-card-tag">Python</span>
+            </div>
+            <div class="lab-metrics">
+              <div class="metric">
+                <div class="m-val">26.2M</div>
+                <div class="m-lbl">Enrollees</div>
+              </div>
+              <div class="metric">
+                <div class="m-val">233K</div>
+                <div class="m-lbl">Avg Income</div>
+              </div>
+              <div class="metric">
+                <div class="m-val">38.6x</div>
+                <div class="m-lbl">STEM Priv Lkl</div>
+              </div>
+            </div>
+          </div>
+          <div class="lab-card" data-project="flood_control">
+            <div class="lab-num-badge">Civic Analytics · DS-002 · May 2025</div>
+            <div class="lab-card-title">DPWH Flood Control Projects</div>
+            <div class="lab-card-hyp">Hypothesis: DPWH project contract costs significantly deviate from approved
+              budgets</div>
+            <p class="lab-card-desc">Socioeconomic audit of 9,855 national flood control projects from
+              sumbongsapangulo.ph, analyzing spending efficiency and regional funding equity via Power BI.</p>
+            <div class="lab-card-stack">
+              <span class="lab-card-tag">Power BI</span>
+              <span class="lab-card-tag">Excel</span>
+              <span class="lab-card-tag">Data Cleaning</span>
+            </div>
+            <div class="lab-metrics">
+              <div class="metric">
+                <div class="m-val">₱545.6B</div>
+                <div class="m-lbl">Total Cost</div>
+              </div>
+              <div class="metric">
+                <div class="m-val">9,855</div>
+                <div class="m-lbl">Projects</div>
+              </div>
+              <div class="metric">
+                <div class="m-val">2,409</div>
+                <div class="m-lbl">Contractors</div>
+              </div>
+            </div>
+          </div>
+          <div class="lab-card" data-project="malaria">
+            <div class="lab-num-badge">DS-003 · Oct 2025</div>
+            <div class="lab-card-title">Malaria Diagnosis & Symptom Profile</div>
+            <div class="lab-card-hyp">Hypothesis: Chest pain is the most significant clinical predictor of malaria risk
+            </div>
+            <p class="lab-card-desc">Clinical predictive modeling of 1,622 patient records using a RapidMiner Decision
+              Tree classifier to determine malaria risk chance and symptom importance weights.</p>
+            <div class="lab-card-stack">
+              <span class="lab-card-tag">RapidMiner</span>
+              <span class="lab-card-tag">Power BI</span>
+              <span class="lab-card-tag">Excel</span>
+            </div>
+            <div class="lab-metrics">
+              <div class="metric">
+                <div class="m-val">94.6%</div>
+                <div class="m-lbl">Accuracy</div>
+              </div>
+              <div class="metric">
+                <div class="m-val">1,622</div>
+                <div class="m-lbl">Records</div>
+              </div>
+              <div class="metric">
+                <div class="m-val">11</div>
+                <div class="m-lbl">Symptoms</div>
+              </div>
+            </div>
+          </div>
+          <div class="lab-card" data-project="thesis">
+            <div class="lab-num-badge">DS-004 · NLP · 2025 – Present <span class="wip-badge">⚗ Preliminary Results</span></div>
+            <div class="lab-card-title">TsekTxt: Taglish Election Misinformation Detection</div>
+            <div class="lab-card-hyp">Research Question: Which transformer model best detects Taglish election
+              misinformation, and what are the top linguistic predictors?</div>
+            <p class="lab-card-desc">Comparative benchmark of RoBERTa-Tagalog, mBERT, and XLM-RoBERTa on informal
+              Filipino-English election posts, with Integrated Gradients &amp; SHAP predictor extraction.</p>
+            <div class="lab-card-stack">
+              <span class="lab-card-tag">Python</span>
+              <span class="lab-card-tag">HuggingFace</span>
+              <span class="lab-card-tag">RoBERTa</span>
+              <span class="lab-card-tag">SHAP</span>
+              <span class="lab-card-tag">mBERT</span>
+            </div>
+            <div class="lab-metrics">
+              <div class="metric">
+                <div class="m-val">3</div>
+                <div class="m-lbl">Transformers</div>
+              </div>
+              <div class="metric">
+                <div class="m-val">24K+</div>
+                <div class="m-lbl">Training Samples</div>
+              </div>
+              <div class="metric">
+                <div class="m-val">89.4%</div>
+                <div class="m-lbl">Best F1-Score</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="proj-panel" id="tab-se">
+        <div class="proj-grid reveal-grid reveal rv1">
+          <div class="proj-card" data-project="lupon">
+            <div class="card-label">Full-Stack · Academic Service Learning</div>
+            <div class="card-title">Lupong Tagapamayapa CCRMS</div>
+            <div class="card-period">Jan 2025 – May 2025</div>
+            <p class="card-desc">Full-stack criminal and civil cases records management system built and deployed for
+              Barangay Molino III, Bacoor, Cavite. Role-based access, case tracking, dashboard analytics, and encrypted
+              backups.</p>
+            <div class="card-stack">
+              <span class="card-tag">PHP</span>
+              <span class="card-tag">MySQL</span>
+              <span class="card-tag">JavaScript</span>
+              <span class="card-tag">HTML/CSS</span>
+              <span class="card-tag">XAMPP</span>
+            </div>
+            <div class="card-open"><span aria-hidden="true">⊞</span> Open Case Study</div>
+            <div class="card-thumb" style="background-image:url('assets/projects/web-science/lupon/dashboard.png')">
+            </div>
+          </div>
+          <div class="proj-card" data-project="carinderia">
+            <div class="card-label">Full-Stack · Freelance</div>
+            <div class="card-title">Carinderia POS</div>
+            <div class="card-period">2025</div>
+            <p class="card-desc">Multi-branch point of sale system for a food business with a central kitchen and three
+              retail locations. Features real-time inventory, automated recipe costing, branch analytics, and role-based
+              access control.</p>
+            <div class="card-stack">
+              <span class="card-tag">React</span>
+              <span class="card-tag">Node.js</span>
+              <span class="card-tag">MySQL</span>
+              <span class="card-tag">JavaScript</span>
+              <span class="card-tag">Chart.js</span>
+            </div>
+            <div class="card-open"><span aria-hidden="true">⊞</span> Open Case Study</div>
+            <div class="card-thumb" style="background-image:url('assets/projects/web-science/carinderia/pos.png')">
+            </div>
+          </div>
+          <div class="proj-card" data-project="thesis">
+            <div class="card-label">NLP Research &amp; Prototype · Undergraduate Thesis <span class="wip-badge">⚗ In
+                Progress</span></div>
+            <div class="card-title">TsekTxt</div>
+            <div class="card-period">2025 – 2027 (Ongoing)</div>
+            <p class="card-desc">A Taglish election misinformation detection system and prototype web app. Benchmarks
+              RoBERTa-Tagalog, mBERT, and XLM-RoBERTa and uses Integrated Gradients &amp; SHAP to reveal which
+              linguistic features drive each model's predictions.</p>
+            <div class="card-stack">
+              <span class="card-tag">Python</span>
+              <span class="card-tag">HuggingFace</span>
+              <span class="card-tag">RoBERTa</span>
+              <span class="card-tag">mBERT</span>
+              <span class="card-tag">SHAP</span>
+              <span class="card-tag">Gradio</span>
+            </div>
+            <div class="card-open"><span aria-hidden="true">⊞</span> Open Case Study</div>
+            <div class="card-thumb"
+              style="background-image:url('assets/projects/web-science/thesis/screenshots/01-landing.png');background-size:cover;">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="proj-panel" id="tab-all">
+        <div class="proj-grid reveal-grid reveal rv1">
+          <div class="lab-card featured-card" data-project="homeEcon_schoolEnrollment-correlation">
+            <div class="lab-num-badge">DS-001 · Dec 2025</div>
+            <div class="lab-card-title">Household Economics & School Enrollment</div>
+            <div class="lab-card-hyp">Hypothesis: Household food share is the strongest predictor of Senior High School
+              track choice</div>
+            <p class="lab-card-desc">Regional correlation study mapping household FIES socioeconomic factors against
+              DepEd school participation and strand choice across the Philippines.</p>
+            <div class="lab-card-stack">
+              <span class="lab-card-tag">RapidMiner</span>
+              <span class="lab-card-tag">Power BI</span>
+              <span class="lab-card-tag">Excel</span>
+              <span class="lab-card-tag">Python</span>
+            </div>
+            <div class="lab-metrics">
+              <div class="metric">
+                <div class="m-val">26.2M</div>
+                <div class="m-lbl">Enrollees</div>
+              </div>
+              <div class="metric">
+                <div class="m-val">233K</div>
+                <div class="m-lbl">Avg Income</div>
+              </div>
+              <div class="metric">
+                <div class="m-val">38.6x</div>
+                <div class="m-lbl">STEM Priv Lkl</div>
+              </div>
+            </div>
+          </div>
+          <div class="lab-card" data-project="flood_control">
+            <div class="lab-num-badge">Civic Analytics · DS-002 · May 2025</div>
+            <div class="lab-card-title">DPWH Flood Control Projects</div>
+            <div class="lab-card-hyp">Hypothesis: DPWH project contract costs significantly deviate from approved
+              budgets</div>
+            <p class="lab-card-desc">Socioeconomic audit of 9,855 national flood control projects from
+              sumbongsapangulo.ph, analyzing spending efficiency and regional funding equity via Power BI.</p>
+            <div class="lab-card-stack">
+              <span class="lab-card-tag">Power BI</span>
+              <span class="lab-card-tag">Excel</span>
+              <span class="lab-card-tag">Data Cleaning</span>
+            </div>
+            <div class="lab-metrics">
+              <div class="metric">
+                <div class="m-val">₱545.6B</div>
+                <div class="m-lbl">Total Cost</div>
+              </div>
+              <div class="metric">
+                <div class="m-val">9,855</div>
+                <div class="m-lbl">Projects</div>
+              </div>
+              <div class="metric">
+                <div class="m-val">2,409</div>
+                <div class="m-lbl">Contractors</div>
+              </div>
+            </div>
+          </div>
+          <div class="lab-card" data-project="malaria">
+            <div class="lab-num-badge">DS-003 · Oct 2025</div>
+            <div class="lab-card-title">Malaria Diagnosis & Symptom Profile</div>
+            <div class="lab-card-hyp">Hypothesis: Chest pain is the most significant clinical predictor of malaria risk
+            </div>
+            <p class="lab-card-desc">Clinical predictive modeling of 1,622 patient records using a RapidMiner Decision
+              Tree classifier to determine malaria risk chance and symptom importance weights.</p>
+            <div class="lab-card-stack">
+              <span class="lab-card-tag">RapidMiner</span>
+              <span class="lab-card-tag">Power BI</span>
+              <span class="lab-card-tag">Excel</span>
+            </div>
+            <div class="lab-metrics">
+              <div class="metric">
+                <div class="m-val">94.6%</div>
+                <div class="m-lbl">Accuracy</div>
+              </div>
+              <div class="metric">
+                <div class="m-val">1,622</div>
+                <div class="m-lbl">Records</div>
+              </div>
+              <div class="metric">
+                <div class="m-val">11</div>
+                <div class="m-lbl">Symptoms</div>
+              </div>
+            </div>
+          </div>
+          <div class="lab-card" data-project="lupon">
+            <div class="lab-num-badge">SE-001 · Jan – May 2025</div>
+            <div class="lab-card-title">Lupong Tagapamayapa CCRMS</div>
+            <div class="lab-card-hyp">Full-Stack · Academic Service Learning</div>
+            <p class="lab-card-desc">Full-stack criminal and civil cases records management system built and deployed
+              for Barangay Molino III, Bacoor, Cavite. Role-based access, case tracking, dashboard analytics, and
+              encrypted backups.</p>
+            <div class="lab-card-stack">
+              <span class="lab-card-tag">PHP</span>
+              <span class="lab-card-tag">MySQL</span>
+              <span class="lab-card-tag">JavaScript</span>
+              <span class="lab-card-tag">HTML/CSS</span>
+              <span class="lab-card-tag">XAMPP</span>
+            </div>
+            <div class="lab-metrics">
+              <div class="metric">
+                <div class="m-val">5</div>
+                <div class="m-lbl">Modules</div>
+              </div>
+              <div class="metric">
+                <div class="m-val">RBAC</div>
+                <div class="m-lbl">Access Control</div>
+              </div>
+              <div class="metric">
+                <div class="m-val">Live</div>
+                <div class="m-lbl">Deployed</div>
+              </div>
+            </div>
+          </div>
+          <div class="lab-card" data-project="carinderia">
+            <div class="lab-num-badge">SE-002 · 2025</div>
+            <div class="lab-card-title">Carinderia POS</div>
+            <div class="lab-card-hyp">Full-Stack · Freelance</div>
+            <p class="lab-card-desc">Multi-branch point of sale system for a food business with a central kitchen and
+              three retail locations. Features real-time inventory, automated recipe costing, branch analytics, and
+              role-based access control.</p>
+            <div class="lab-card-stack">
+              <span class="lab-card-tag">React</span>
+              <span class="lab-card-tag">Node.js</span>
+              <span class="lab-card-tag">MySQL</span>
+              <span class="lab-card-tag">JavaScript</span>
+              <span class="lab-card-tag">Chart.js</span>
+            </div>
+            <div class="lab-metrics">
+              <div class="metric">
+                <div class="m-val">3</div>
+                <div class="m-lbl">Branches</div>
+              </div>
+              <div class="metric">
+                <div class="m-val">React</div>
+                <div class="m-lbl">Frontend</div>
+              </div>
+              <div class="metric">
+                <div class="m-val">Node</div>
+                <div class="m-lbl">Backend</div>
+              </div>
+            </div>
+          </div>
+          <div class="lab-card" data-project="thesis">
+            <div class="lab-num-badge">SE-003 / DS-004 · 2025 – Present <span class="wip-badge">⚗ Preliminary Results</span>
+            </div>
+            <div class="lab-card-title">TsekTxt: Taglish Election Misinformation Detection</div>
+            <div class="lab-card-hyp">NLP Research · Undergraduate Thesis · Prototype Web App</div>
+            <p class="lab-card-desc">Comparative transformer benchmark + prototype interface for detecting election
+              misinformation in informal Filipino-English (Taglish). Uses SHAP &amp; Integrated Gradients for predictor
+              analysis.</p>
+            <div class="lab-card-stack">
+              <span class="lab-card-tag">Python</span>
+              <span class="lab-card-tag">HuggingFace</span>
+              <span class="lab-card-tag">RoBERTa</span>
+              <span class="lab-card-tag">SHAP</span>
+              <span class="lab-card-tag">mBERT</span>
+            </div>
+            <div class="lab-metrics">
+              <div class="metric">
+                <div class="m-val">3</div>
+                <div class="m-lbl">Transformers</div>
+              </div>
+              <div class="metric">
+                <div class="m-val">24K+</div>
+                <div class="m-lbl">Samples</div>
+              </div>
+              <div class="metric">
+                <div class="m-val">89.4%</div>
+                <div class="m-lbl">Best F1-Score</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ ABOUT ════════ -->
+  <section id="about">
+    <div class="section-inner">
+      <div class="section-header reveal">
+        <span class="section-frame-num">03 /</span>
+        <h2 class="section-title">About</h2>
+        <div class="section-rule"></div>
+      </div>
+      <div class="about-grid">
+        <div>
+          <div class="q-block reveal rv1">
+            <p class="q-text">"I write code the way I shoot film — deliberately, frame by frame, knowing that what's
+              left out matters as much as what's in."</p>
+            <span class="q-attr">— Hans Jio Arca</span>
+          </div>
+          <p class="about-body reveal rv2">Data scientist and software engineer based in Manila, Philippines, drawn to
+            problems at the intersection of statistical reasoning and systems thinking. I've spent the last several
+            years building ML models, data pipelines, and backend infrastructure that — when things go right — quietly
+            disappear into the product and just <em>work</em>.<br><br>I care deeply about craft, legibility, and the
+            kind of engineering that holds up long after the sprint ends. When I'm not in front of a terminal, I'm
+            loading a camera.</p>
+          <!-- AFTER -->
+          <div class="reveal rv3">
+            <div class="gear-label" style="margin-top:0">Skillsets</div>
+            <div class="hobby-chips" style="margin-bottom:20px">
+              <span class="h-chip">Python</span>
+              <span class="h-chip">PHP</span>
+              <span class="h-chip">Web Development</span>
+              <span class="h-chip">SQL</span>
+              <span class="h-chip">Data Science</span>
+              <span class="h-chip">Machine Learning</span>
+              <span class="h-chip">Backend Engineering</span>
+              <span class="h-chip">APIs</span>
+              <span class="h-chip">AI-Assisted Dev</span>
+            </div>
+
+            <div class="gear-label">Interests & Hobbies</div>
+            <div class="hobby-chips">
+              <span class="h-chip film">Filming</span>
+              <span class="h-chip film">Cinemas</span>
+              <span class="h-chip film">Music</span>
+              <span class="h-chip film">Photography</span>
+              <span class="h-chip">Open Source</span>
+              <span class="h-chip">Mech Keyboards</span>
+              <span class="h-chip">Reading</span>
+              <span class="h-chip">Coffee</span>
+              <span class="h-chip">Hiking</span>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="reveal rv1">
+            <div class="gear-label">Tech Gear</div>
+            <div class="gear-list">
+              <div class="gear-item"><span class="gear-icon" aria-hidden="true">⚡</span><span class="gear-name">VS Code</span><span
+                  class="gear-note">editor</span></div>
+              <div class="gear-item"><span class="gear-icon" aria-hidden="true">▦</span><span class="gear-name">Powershell +
+                  Bash</span><span class="gear-note">terminal</span></div>
+              <div class="gear-item"><span class="gear-icon" aria-hidden="true">☁</span><span class="gear-name">AWS + Azure +
+                  Vercel</span><span class="gear-note">deploy targets</span></div>
+            </div>
+          </div>
+          <div class="reveal rv2" style="margin-top: 9px">
+            <div class="gear-label">Camera Gear</div>
+            <div class="gear-list">
+              <div class="gear-item"><span class="gear-icon" aria-hidden="true">◎</span><span class="gear-name">Canon EOS 550d Stock
+                  Kit</span><span class="gear-note">primary body & lens</span></div>
+              <div class="gear-item"><span class="gear-icon" aria-hidden="true">◎</span><span class="gear-name">Sony Cybershot
+                  DSC-W800</span><span class="gear-note">carry digicam</span></div>
+              <div class="gear-item"><span class="gear-icon" aria-hidden="true">⊙</span><span class="gear-name">Sony Handycam
+                  HDR-CX160</span><span class="gear-note">main handycam</span></div>
+              <div class="gear-item"><span class="gear-icon" aria-hidden="true">⊙</span><span class="gear-name">Sony Handycam
+                  DCR-SX41</span><span class="gear-note">secondary handycam</span></div>
+              <div class="gear-item"><span class="gear-icon" aria-hidden="true">⬡</span><span class="gear-name">iPhone 14 Pro
+                  Max</span><span class="gear-note">mobile camera</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ EXPERIENCE ════════ -->
+  <section id="experience">
+    <div class="section-inner">
+      <div class="section-header reveal">
+        <span class="section-frame-num">04 /</span>
+        <h2 class="section-title">Experience & Education</h2>
+        <div class="section-rule"></div>
+      </div>
+      <div class="exp-edu-grid">
+        <div>
+          <div class="sub-label reveal">Work & Professional History</div>
+          <div class="timeline">
+
+            <div class="tl-item reveal rv1">
+              <div class="tl-pip"></div>
+              <div class="tl-period">May 2025 – Sep 2025</div>
+              <div class="tl-role">Backend & Database Developer (Contract)</div>
+              <div class="tl-company">i-Bizness Consultancy · Manila, PH (Remote)</div>
+              <p class="tl-desc">Engineered database schemas and REST APIs for a multi-tenant ERP & POS system across 4
+                retail branches. Designed backend database triggers for the "Smart Recipe" costing engine, and built
+                dynamic aggregation queries for sales analytics reports. Accelerated debugging and documentation cycles
+                using AI-assisted tooling (Claude, Cursor) to optimize development velocity.</p>
+              <div class="tl-tags"><span class="tl-tag">Node.js</span><span class="tl-tag">Express</span><span
+                  class="tl-tag">MySQL</span><span class="tl-tag">REST API</span><span class="tl-tag">Database
+                  Design</span><span class="tl-tag">AI-Augmented Dev</span></div>
+            </div>
+
+            <div class="tl-item reveal rv2">
+              <div class="tl-pip"></div>
+              <div class="tl-period">Jan 2025 – May 2025</div>
+              <div class="tl-role">Web Systems Developer & Client Liaison</div>
+              <div class="tl-company">Barangay Lupon Tagapamayapa · Manila, PH</div>
+              <p class="tl-desc">Led development of a full-stack case-logging web system for civil and criminal case
+                management for a municipal government project. Served as primary point of contact between the dev team
+                and local government stakeholders, conducting walkthroughs and training sessions with barangay staff.
+              </p>
+              <div class="tl-tags"><span class="tl-tag">HTML/CSS</span><span class="tl-tag">JavaScript</span><span
+                  class="tl-tag">PHP</span><span class="tl-tag">MySQL</span><span class="tl-tag">GitHub</span></div>
+            </div>
+
+            <div class="tl-item reveal rv3">
+              <div class="tl-pip"></div>
+              <div class="tl-period">Aug 2024 – May 2025</div>
+              <div class="tl-role">Treasurer</div>
+              <div class="tl-company">Adamson Computer Science Society · Manila, PH</div>
+              <p class="tl-desc">Managed the organization's full academic year budget across 10+ events, overseeing
+                income tracking, expense reporting, and reimbursements. Automated financial tracking via Excel and
+                Google Sheets, and analyzed past data to forecast event costs and optimize budget allocations.</p>
+              <div class="tl-tags"><span class="tl-tag">Excel</span><span class="tl-tag">Google Sheets</span><span
+                  class="tl-tag">Data Analysis</span><span class="tl-tag">Budget Management</span></div>
+            </div>
+
+            <div class="tl-item reveal rv4">
+              <div class="tl-pip"></div>
+              <div class="tl-period">Aug 2023 – May 2024</div>
+              <div class="tl-role">Junior Officer</div>
+              <div class="tl-company">Adamson Computer Science Society · Manila, PH</div>
+              <p class="tl-desc">Assisted executive officers in organizing student activities and coordinating internal
+                operations. Acted as liaison between the organization and CS students for announcements and feedback.
+                Shadowed senior officers to learn organizational management and event planning.</p>
+              <div class="tl-tags"><span class="tl-tag">Event Planning</span><span class="tl-tag">Leadership</span><span
+                  class="tl-tag">Coordination</span></div>
+            </div>
+
+          </div>
+        </div>
+        <div>
+          <div class="sub-label reveal">Education</div>
+          <div class="edu-stack reveal rv1">
+
+            <div class="edu-card">
+              <div class="edu-deg">B.S. Computer Science, Major in Data Science</div>
+              <div class="edu-school">Adamson University</div>
+              <div class="edu-period">Aug 2023 – 2027</div>
+              <p class="edu-detail">1.07 GWA · Consistent Dean's Lister</p>
+            </div>
+
+            <div class="edu-card">
+              <div class="edu-deg">DataCamp Scholar</div>
+              <div class="edu-school">DataCamp (via DataEngineering Philippines)</div>
+              <div class="edu-period">Mar 2025 – Present</div>
+              <p class="edu-detail">Recipient of the DataCamp scholarship sponsored by the DataEngineering Philippines
+                community. Actively completing learning tracks and delivering team assessments and assignments on time.
+              </p>
+            </div>
+
+            <div class="edu-card">
+              <div class="edu-deg">CS50x: Introduction to Computer Science</div>
+              <div class="edu-school">Harvard University · edX</div>
+              <div class="edu-period">2024 – 2025</div>
+              <p class="edu-detail">Completed Harvard's flagship CS course covering algorithms, data structures, web
+                development, and more.</p>
+            </div>
+
+          </div>
+
+          <div class="sub-label reveal" style="margin-top:40px">Certifications</div>
+          <div class="cert-scroll-wrap reveal rv1" id="cert-scroll-wrap">
+            <div class="cert-stack" id="cert-stack">
+
+              <div class="cert-card">
+                <div class="cert-body">
+                  <div class="cert-name">IT Specialist — Databases</div>
+                  <div class="cert-issuer">Certiport · Pearson VUE</div>
+                </div>
+                <div class="cert-actions">
+                  <a href="https://www.credly.com/badges/cd841ed5-c863-43f0-b7db-2f748a24b59b" target="_blank"
+                    class="cert-btn cert-link" aria-label="Verify IT Specialist Databases certificate">Verify ↗</a>
+                </div>
+              </div>
+
+              <div class="cert-card">
+                <div class="cert-body">
+                  <div class="cert-name">IT Specialist — Networking</div>
+                  <div class="cert-issuer">Certiport · Pearson VUE</div>
+                </div>
+                <div class="cert-actions">
+                  <a href="https://www.credly.com/badges/22e7f184-abc8-42a6-88ce-e33b74c8f55d" target="_blank"
+                    class="cert-btn cert-link" aria-label="Verify IT Specialist Networking certificate">Verify ↗</a>
+                </div>
+              </div>
+
+              <div class="cert-card">
+                <div class="cert-body">
+                  <div class="cert-name">Performance Monitoring For Application Developers</div>
+                  <div class="cert-issuer">Codio · Coursera</div>
+                </div>
+                <div class="cert-actions">
+                  <a href="https://coursera.org/share/48a0b408ee37e83751b9aad01de9eb8c" target="_blank"
+                    class="cert-btn cert-link" aria-label="Verify Performance Monitoring certificate">Verify ↗</a>
+                </div>
+              </div>
+
+              <div class="cert-card">
+                <div class="cert-body">
+                  <div class="cert-name">Testing and Debugging in .NET Core Applications</div>
+                  <div class="cert-issuer">EDUCBA · Coursera</div>
+                </div>
+                <div class="cert-actions">
+                  <a href="https://coursera.org/share/1f09a8c56c5e256bdc242d7cb29e9365" target="_blank"
+                    class="cert-btn cert-link" aria-label="Verify .NET Core Testing certificate">Verify ↗</a>
+                </div>
+              </div>
+
+              <div class="cert-card">
+                <div class="cert-body">
+                  <div class="cert-name">Foundations of Project Management</div>
+                  <div class="cert-issuer">Google · Coursera</div>
+                </div>
+                <div class="cert-actions">
+                  <a href="https://coursera.org/share/4fb6ec80876a415888cdb42320e401ee" target="_blank"
+                    class="cert-btn cert-link" aria-label="Verify Google Project Management certificate">Verify ↗</a>
+                </div>
+              </div>
+
+              <div class="cert-card">
+                <div class="cert-body">
+                  <div class="cert-name">Project Management: The Basics for Success</div>
+                  <div class="cert-issuer">University of California, Irvine · Coursera</div>
+                </div>
+                <div class="cert-actions">
+                  <a href="https://coursera.org/share/2e57220eb1496738c4dc6b23b142fbaa" target="_blank"
+                    class="cert-btn cert-link" aria-label="Verify UC Irvine Project Management certificate">Verify ↗</a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="cert-scroll-hint reveal rv2">Scroll to view all · 6 certifications</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ BLOG / WRITING ════════ -->
+  <section id="blog" style="display: none;">
+    <div class="section-inner" style="padding-bottom:0">
+      <div class="section-header reveal">
+        <span class="section-frame-num">05 /</span>
+        <h2 class="section-title">Writing</h2>
+        <div class="section-rule"></div>
+      </div>
+      <p class="blog-intro reveal rv1">Notes on engineering, data, film photography, and the occasional thing that has
+        nothing to do with either.</p>
+    </div>
+    <div style="padding:0 64px 0;max-width:1160px;margin:0 auto" class="reveal rv2 visible">
+      <div class="blog-list reveal-grid visible">
+        <div class="blog-row featured" data-post="homeEcon-study">
+          <span class="blog-row-date">Dec 15, 2025</span>
+          <div class="blog-row-main">
+            <div class="blog-row-title">Beyond the Data: Why I Studied Household Economics & School Enrollment in the
+              Philippines</div>
+            <div class="blog-row-excerpt">A deeply personal reflection on FIES and DepEd datasets — and why food share
+              is the strongest predictor of basic education track choices.</div>
+          </div>
+          <div class="blog-row-meta"><span class="blog-feat-badge">Latest</span><span class="blog-cat">Data
+              Science</span><span class="blog-arr">→</span></div>
+        </div>
+      </div>
+      <button class="blog-more-btn reveal rv3" id="open-blog-modal">Browse All Posts → 1 total</button>
+    </div>
+  </section>
+
+  <!-- ════════ FAQ ════════ -->
+  <section id="faq">
+    <div class="section-inner">
+      <div class="section-header reveal">
+        <span class="section-frame-num">05 /</span>
+        <h2 class="section-title">FAQ</h2>
+        <div class="section-rule"></div>
+      </div>
+      <p class="faq-intro reveal rv1">A few things people usually ask before they reach out.</p>
+      <div class="faq-grid reveal rv2">
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            <span>Are you open to full-time roles?</span>
+            <span class="faq-chevron" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-a" role="region">
+            <p>Yes. I'm finishing my degree but actively looking for roles where I can contribute from day one — whether that's data science, software engineering, or something that sits between both. Remote-first is ideal, but I'm open to relocation for the right opportunity.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            <span>What kind of freelance or contract work do you take on?</span>
+            <span class="faq-chevron" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-a" role="region">
+            <p>Mostly backend systems, database architecture, and data-driven web apps. I've built ERP and POS systems, government record management tools, and analytics dashboards. Comfortable jumping in mid-project or building from scratch.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            <span>What's your typical workflow?</span>
+            <span class="faq-chevron" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-a" role="region">
+            <p>I start by understanding the actual problem, not just the stated requirements. From there it's scoping, a quick prototype to validate assumptions, then iterative builds. I document as I go and care a lot about clean handoffs — code that someone else can read and maintain matters to me.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            <span>What stack do you prefer?</span>
+            <span class="faq-chevron" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-a" role="region">
+            <p>For data work, Python all the way — pandas, scikit-learn, HuggingFace. For web, it depends on the project. I reach for PHP/MySQL for straightforward systems and React/Node for anything that needs more scale. SQL-heavy backends are home turf regardless of what's on the frontend.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            <span>Are you open to remote work or relocation?</span>
+            <span class="faq-chevron" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-a" role="region">
+            <p>Remote is my default and where I work best, but I'm open to relocation for full-time roles — especially if there's a strong team or meaningful mission behind it. I'm based in Manila, UTC+8.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            <span>What is TsekTxt / your thesis about?</span>
+            <span class="faq-chevron" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-a" role="region">
+            <p>TsekTxt is my undergraduate thesis and a prototype I'm building alongside it. The research benchmarks three transformer models — RoBERTa-Tagalog, mBERT, and XLM-RoBERTa — on detecting election misinformation written in Taglish, then uses SHAP and Integrated Gradients to surface which linguistic features each model actually responds to. The prototype turns that into a working web app.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            <span>Are you available for academic collaborations?</span>
+            <span class="faq-chevron" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-a" role="region">
+            <p>Open to it. If you're working on something in NLP, misinformation detection, or the intersection of language and civic issues, feel free to reach out. Research with a social or policy angle is the kind of thing I find genuinely interesting.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            <span>How long does a typical project take?</span>
+            <span class="faq-chevron" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-a" role="region">
+            <p>Depends heavily on scope, but most of the systems I've worked on run anywhere from two weeks to three months. I can give a much more accurate estimate after a short first conversation about what you're actually trying to build.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ PHOTOGRAPHY GALLERY ════════ -->
+  <section id="gallery">
+    <div class="section-inner" style="padding-bottom:24px">
+      <div class="section-header reveal">
+        <span class="section-frame-num">06 /</span>
+        <h2 class="section-title">Through the Lens</h2>
+        <div class="section-rule"></div>
+      </div>
+      <p class="gallery-intro reveal rv1">The "Film" look shot mainly on the streets of Makati, Manila, and wherever a
+        roll takes me. Mostly shot in RAW using a DSLR, along with vintage digicams, camcorders, and mobile cameras. Focused on candid street photography.</p>
+      <p class="gal-drag-hint reveal rv2" style="margin-bottom:8px">Drag to scroll · Click/Tap to enlarge</p>
+    </div>
+    <div class="sprocket-edge" id="spr-top"></div>
+    <div class="gallery-stage">
+      <div class="gallery-track" id="gallery-track">
+        <!-- JS will populate this -->
+      </div>
+    </div>
+    <div class="sprocket-edge" id="spr-bot"></div>
+  </section>
+
+  <!-- ════════ CONTACT ════════ -->
+  <section id="contact">
+    <div class="section-inner">
+      <div class="section-header reveal">
+        <span class="section-frame-num">07 /</span>
+        <h2 class="section-title">Get in Touch</h2>
+        <div class="section-rule"></div>
+      </div>
+      <div class="contact-grid">
+        <div>
+          <div class="contact-info-label reveal">Direct Lines</div>
+          <p class="contact-tagline reveal rv1">Whether it's a project, a role, or just a conversation worth having —
+            the shutter's always open.</p>
+          <div class="contact-cards reveal rv2">
+            <a href="mailto:hansj.arca@gmail.com" class="c-card">
+              <div class="c-card-icon"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="1.5">
+                  <rect x="2" y="4" width="20" height="16" rx="2" />
+                  <path d="m2 7 10 7 10-7" />
+                </svg></div>
+              <div class="c-card-body"><span class="c-card-label">Email</span><span
+                  class="c-card-value">hansj.arca@gmail.com</span><span class="c-card-sub">Preferred for project
+                  inquiries</span></div><span class="c-card-arr" aria-hidden="true">→</span>
+            </a>
+            <a href="https://linkedin.com/in/hansjioarca" target="_blank" class="c-card">
+              <div class="c-card-icon"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                </svg></div>
+              <div class="c-card-body"><span class="c-card-label">LinkedIn</span><span
+                  class="c-card-value">in/hansjioarca</span><span class="c-card-sub">Open to connection requests</span>
+              </div><span class="c-card-arr" aria-hidden="true">→</span>
+            </a>
+            <a href="https://github.com/hansjio" target="_blank" class="c-card">
+              <div class="c-card-icon"><svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+                </svg></div>
+              <div class="c-card-body"><span class="c-card-label">GitHub</span><span
+                  class="c-card-value">github.com/hansjio</span><span class="c-card-sub">Code, side projects,
+                  experiments</span></div><span class="c-card-arr" aria-hidden="true">→</span>
+            </a>
+            <div class="c-card" style="cursor:default">
+              <div class="c-card-icon"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="1.5">
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M12 6v6l4 2" />
+                </svg></div>
+              <div class="c-card-body"><span class="c-card-label">Response Time</span><span class="c-card-value">Within
+                  48 hours</span><span class="c-card-sub">Philippine Standard Time (UTC+8)</span></div>
+            </div>
+          </div>
+          <div class="avail-strip reveal rv3">
+            <div class="avail-light"></div>
+            <div class="avail-strip-text"><strong>Currently available</strong> for freelance, contract, and full-time
+              remote roles. Open to relocation for the right opportunity.</div>
+          </div>
+          <div class="contact-location reveal rv4">
+            <div class="loc-dot"></div>Manila, Philippines
+          </div>
+        </div>
+        <div class="reveal rv2">
+          <div class="contact-form-label">Send a Message</div>
+          <p class="cf-note">Have anything you want to say? Fill this out and I'll get back to you. Let's chat!</p>
+          <form id="contact-form" action="https://formspree.io/f/mpqbqaap" method="POST" target="_blank">
+            <input type="hidden" name="subject" id="cf-subject" />
+            <div class="cf-row">
+              <div class="cf-field"><label class="cf-label">Name</label><input class="cf-input" id="cf-name" name="name"
+                  type="text" placeholder="Your name" required /></div>
+              <div class="cf-field"><label class="cf-label">Email</label><input class="cf-input" id="cf-email"
+                  name="email" type="email" placeholder="your@email.com" required /></div>
+            </div>
+            <div class="cf-field">
+              <label class="cf-label">Subject — what's this about?</label>
+              <div class="cf-subject-tags">
+                <button type="button" class="cf-stag" data-tag="Freelance / Contract">Freelance / Contract</button>
+                <button type="button" class="cf-stag" data-tag="Full-time Role">Full-time Role</button>
+                <button type="button" class="cf-stag" data-tag="Open Source">Open Source</button>
+                <button type="button" class="cf-stag" data-tag="Photography">Photography</button>
+                <button type="button" class="cf-stag" data-tag="Just Saying Hi">Just Saying Hi</button>
+                <button type="button" class="cf-stag cf-others-btn" id="cf-others-btn">Others</button>
+              </div>
+              <input type="text" class="cf-input cf-others" id="cf-others" placeholder="Specify other subject..."
+                style="display:none;" />
+            </div>
+            <div class="cf-field"><label class="cf-label">Message</label><textarea class="cf-input" id="cf-msg"
+                name="message" rows="6"
+                placeholder="Tell me what you're working on, what you need, or just what's on your mind."
+                required></textarea></div>
+            <button type="submit" class="cf-submit">Send Message <span class="cf-submit-ico">&rarr;</span></button>
+          </form>
+          <p class="cf-disclaimer">This form is powered by Formspree.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  </main>
+
+  <footer>
+    <div class="ft-bar">
+      <div class="ft-bar-left">
+        <div class="ft-logo-holes"><div class="logo-hole"></div><div class="logo-hole"></div><div class="logo-hole"></div></div>
+        <span class="ft-bar-name">Hans Jio Arca</span>
+        <span class="ft-bar-sep">&mdash;</span>
+        <span class="ft-bar-copy">&copy; 2026 &middot; Built with HTML, CSS &amp; Vanilla JS</span>
+      </div>
+      <button class="ft-back-top" id="ft-back-top" aria-label="Back to top">&uarr; Top</button>
+    </div>
+  </footer>
+
+  <script src="data/projects.js" defer></script>
+  <script src="data/blog-posts.js" defer></script>
+  <script src="data/gallery-data.js" defer></script>
+  <script src="js/app.js" defer></script>
 </body>
+
 </html>

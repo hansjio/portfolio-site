@@ -1,4 +1,4 @@
-const PROJECTS = {
+﻿const PROJECTS = {
   lupon: {
     thumb: 'assets/projects/web-science/lupon/dashboard.png',
     label: 'Full-Stack Web Development · Academic Service Learning',
@@ -61,6 +61,7 @@ const PROJECTS = {
     label: 'Full-Stack Web Development · Freelance',
     title: 'Carinderia POS: Multi-Branch Point of Sale System',
     period: '2025',
+    githubLink: 'https://github.com/hansjio/carinderia-pos-demo',
     body: `
       <p>A comprehensive web-based platform designed for a food business operating a central production kitchen and three retail branches. The system integrates a Point of Sale, automated recipe costing, real-time inventory tracking, and multi-branch analytics — streamlining operations from the kitchen all the way to the final sale.</p>
 
@@ -115,7 +116,7 @@ const PROJECTS = {
     label: 'Data Science · Regional Correlation Study',
     title: 'Regional Correlation Study: Household Economics & School Enrollment',
     period: 'Dec 2025',
-    thumb: 'assets/projects/data-science/homeEcon_schoolEnrollment-correlation/slide-1.png',
+    thumb: 'assets/projects/data-science/homeEcon_schoolEnrollment-correlation/slide-1.jpg',
     body: `
       <p>A regional data mining and correlation study that integrates household socioeconomic indicators from the Filipino Family Income and Expenditure Survey (FIES) with K–12 school enrollment statistics from the Department of Education (DepEd) for Academic Year 2017–2018. Following the CRISP-DM methodology, the project applies descriptive statistics, correlation matrices, K-means clustering, and decision tree classifiers to uncover how family income, food expenditure share, and academic sector shape student track choices in Senior High School (SHS) across the Philippines.</p>
  
@@ -158,18 +159,18 @@ const PROJECTS = {
       { label: 'DepEd Enrollment Dataset (Kaggle)', icon: '⧉', url: 'https://www.kaggle.com/datasets/raiblaze/philippines-school-enrollment-data/data?select=ph_school_enrollment.csv' }
     ],
     slides: [
-      { ph: '▦', label: 'Title Slide: Study Overview',                   img: 'assets/projects/data-science/homeEcon_schoolEnrollment-correlation/slide-1.png' },
-      { ph: '◉', label: 'Research Gap & Context',                        img: 'assets/projects/data-science/homeEcon_schoolEnrollment-correlation/slide-2.png' },
-      { ph: '〜', label: 'Objectives & Findings: Enrollment Distribution', img: 'assets/projects/data-science/homeEcon_schoolEnrollment-correlation/slide-3.png' },
-      { ph: '⊙', label: 'Objectives & Findings: Correlation Analysis',     img: 'assets/projects/data-science/homeEcon_schoolEnrollment-correlation/slide-4.png' },
-      { ph: '◎', label: 'Objectives & Findings: SHS Strand Preferences',   img: 'assets/projects/data-science/homeEcon_schoolEnrollment-correlation/slide-5.png' },
-      { ph: '⊡', label: 'Objectives & Findings: Sector & Policy Insights', img: 'assets/projects/data-science/homeEcon_schoolEnrollment-correlation/slide-6.png' },
-      { ph: '⊞', label: 'Main Power BI Dashboard',                         img: 'assets/projects/data-science/homeEcon_schoolEnrollment-correlation/slide-7.png' },
-      { ph: '⟦', label: 'Policy Recommendations',                          img: 'assets/projects/data-science/homeEcon_schoolEnrollment-correlation/slide-8.png' }
+      { ph: '▦', label: 'Title Slide: Study Overview',                   img: 'assets/projects/data-science/homeEcon_schoolEnrollment-correlation/slide-1.jpg' },
+      { ph: '◉', label: 'Research Gap & Context',                        img: 'assets/projects/data-science/homeEcon_schoolEnrollment-correlation/slide-2.jpg' },
+      { ph: '〜', label: 'Objectives & Findings: Enrollment Distribution', img: 'assets/projects/data-science/homeEcon_schoolEnrollment-correlation/slide-3.jpg' },
+      { ph: '⊙', label: 'Objectives & Findings: Correlation Analysis',     img: 'assets/projects/data-science/homeEcon_schoolEnrollment-correlation/slide-4.jpg' },
+      { ph: '◎', label: 'Objectives & Findings: SHS Strand Preferences',   img: 'assets/projects/data-science/homeEcon_schoolEnrollment-correlation/slide-5.jpg' },
+      { ph: '⊡', label: 'Objectives & Findings: Sector & Policy Insights', img: 'assets/projects/data-science/homeEcon_schoolEnrollment-correlation/slide-6.jpg' },
+      { ph: '⊞', label: 'Main Power BI Dashboard',                         img: 'assets/projects/data-science/homeEcon_schoolEnrollment-correlation/slide-7.jpg' },
+      { ph: '⟦', label: 'Policy Recommendations',                          img: 'assets/projects/data-science/homeEcon_schoolEnrollment-correlation/slide-8.jpg' }
     ]
   },
   flood_control: {
-    label: 'Data Science · DPWH Projects Analysis',
+    label: 'Civic Analytics · DPWH Projects Analysis',
     title: 'DPWH Flood Control Projects: Spending & Performance Analysis',
     period: 'Jul 2022 – May 2025',
     thumb: 'assets/projects/data-science/flood-control/slide-6.png',
@@ -217,6 +218,68 @@ const PROJECTS = {
       { ph: '⊙', label: 'Objective 4: Regional Funding Equity Analysis', img: 'assets/projects/data-science/flood-control/slide-4.png' },
       { ph: '◎', label: 'Objective 5: Approved Budget vs. Contract Cost', img: 'assets/projects/data-science/flood-control/slide-5.png' },
       { ph: '⊡', label: 'Power BI Dashboard: DPWH Flood Control Projects', img: 'assets/projects/data-science/flood-control/slide-6.png' }
+    ]
+  },
+  thesis: {
+    badge: '⚗ In Progress — Ongoing Research',
+    label: 'NLP Research · Undergraduate Thesis',
+    title: 'TsekTxt: Taglish Election Misinformation Detection & Predictor Analysis',
+    period: '2025 – 2027 (In Progress)',
+    thumb: 'assets/projects/web-science/thesis/screenshots/01-landing.png',
+    githubLink: 'https://github.com/hansjio/tsektxt-app',
+    link: 'https://tsektxt-demo.vercel.app',
+    linkText: 'Live Demo',
+    body: `
+      <p>An undergraduate thesis and NLP research project developed at Adamson University that tackles one of the most pressing challenges in Filipino digital discourse: the automated detection of election misinformation written in <strong>Taglish</strong> — the informal code-switched blend of Tagalog and English that dominates Philippine social media. The study benchmarks three state-of-the-art transformer models and uses model interpretability methods to surface the linguistic features that actually drive their predictions.</p>
+
+      <h2>The Problem</h2>
+      <ul>
+        <li><strong>Code-Switching Gap:</strong> Most Filipino NLP research is trained on formal text, but election misinformation spreads primarily in informal Taglish — a variety that existing models are poorly calibrated for.</li>
+        <li><strong>Model Opacity:</strong> Even high-performing classifiers operate as black boxes. Without interpretability, we cannot determine <em>which words, entities, or patterns</em> a model is actually using to flag content as misinformation — a critical gap for accountability and bias auditing.</li>
+        <li><strong>Benchmark Vacuum:</strong> There is no existing comparative benchmark of transformer models on informal Taglish election-related credibility classification, making it impossible to make evidence-based model selection decisions for this domain.</li>
+      </ul>
+
+      <h2>Research Design</h2>
+      <ul>
+        <li><strong>Model Comparison:</strong> Fine-tune and benchmark three pre-trained transformers — <strong>RoBERTa-Tagalog</strong>, <strong>mBERT</strong>, and <strong>XLM-RoBERTa</strong> — on a combined Filipino misinformation corpus (24,000+ labeled samples) for binary credibility classification (credible vs. not credible).</li>
+        <li><strong>Supplementary Taglish Dataset:</strong> Curate 300–500 manually annotated public posts from Facebook and X/Twitter spanning the 2022 Philippine presidential election period (Feb–May 2022), verified against <em>Vera Files</em> and <em>Tsek.ph</em> fact-checkers.</li>
+        <li><strong>Two-Level Evaluation:</strong> Models are evaluated on both the formal training split (Level 1) and the new informal Taglish test set (Level 2) to measure domain generalization. Statistical significance assessed via McNemar's test.</li>
+        <li><strong>Predictor Extraction:</strong> Apply <strong>Integrated Gradients</strong> (Captum) and <strong>SHAP</strong> on each model's predictions. Merge subword tokens, compute attribution scores, and identify consensus predictors where both methods agree — surfacing candidate names, political keywords, and informal Taglish phrases that most strongly drive misinformation classification.</li>
+      </ul>
+
+      <h2>TsekTxt — The Prototype</h2>
+      <ul>
+        <li><strong>Live Demonstration Interface:</strong> A web-based simulation interface built as a working proof-of-concept, allowing users to input Taglish text and receive real-time credibility predictions from all three models simultaneously, with Integrated Gradients word-level attribution highlights.</li>
+        <li><strong>Three-Model Side-by-Side:</strong> Displays confidence scores and highlighted token attributions for RoBERTa-Tagalog, mBERT, and XLM-RoBERTa in a single view — making model agreement and disagreement immediately visible.</li>
+        <li><strong>Built for Research Accessibility:</strong> Designed to make transformer-level NLP interpretability accessible to non-technical stakeholders, journalists, and fact-checkers — not just ML researchers.</li>
+      </ul>
+
+      <h2>Research Significance</h2>
+      <ul>
+        <li><strong>First Comparative Benchmark:</strong> Produces the first systematic head-to-head comparison of these three transformers on informal Taglish election misinformation, filling a critical gap in Filipino NLP research.</li>
+        <li><strong>Interpretable AI for Journalism:</strong> The predictor extraction pipeline directly addresses the "black box" problem — enabling explainable, auditable misinformation detection that can support fact-checking workflows.</li>
+        <li><strong>Bias Auditing:</strong> Attribution analysis reveals which candidate names, political entities, and language patterns are disproportionately weighted — providing evidence for bias detection in automated content moderation.</li>
+      </ul>
+    `,
+    stack: ['Python', 'HuggingFace Transformers', 'RoBERTa-Tagalog', 'mBERT', 'XLM-RoBERTa', 'SHAP', 'Integrated Gradients', 'Captum', 'Gradio', 'Google Colab'],
+    tasks: ['Thesis Research', 'Dataset Curation & Annotation', 'Model Fine-Tuning', 'Interpretability Analysis', 'Prototype Development', 'Academic Writing'],
+    metrics: [
+      { val: '3',     lbl: 'Transformer Models' },
+      { val: '24K+',  lbl: 'Training Samples' },
+      { val: '500',   lbl: 'Taglish Posts (Target)' },
+      { val: '89.4%',  lbl: 'Best F1-Score' }
+    ],
+    refs: [
+      { label: 'Thesis Chapters 1–3 (PDF)', icon: '◈', file: 'assets/projects/web-science/thesis/thesis-chapters-1-3.pdf' },
+      { label: 'TsekTxt Proposal (PDF)',    icon: '◎', file: 'assets/projects/web-science/thesis/tsektxt-proposal.pdf' }
+    ],
+    slides: [
+      { ph: '▦', label: 'Landing Page — tsek. home',              img: 'assets/projects/web-science/thesis/screenshots/01-landing.png'       },
+      { ph: '◉', label: 'Checker — Text Input Interface',         img: 'assets/projects/web-science/thesis/screenshots/02-checker-input.png'  },
+      { ph: '〜', label: 'Checker — Taglish Post Entered',         img: 'assets/projects/web-science/thesis/screenshots/03-checker-filled.png' },
+      { ph: '⊙', label: 'Results — Credibility Signal Analysis',  img: 'assets/projects/web-science/thesis/screenshots/04-results.png'        },
+      { ph: '◎', label: 'Methodology — Research Design Overview', img: 'assets/projects/web-science/thesis/screenshots/05-methodology.png'    },
+      { ph: '⊡', label: 'Dashboard — Analysis History',           img: 'assets/projects/web-science/thesis/screenshots/06-dashboard.png'     }
     ]
   },
   malaria: {
@@ -281,4 +344,5 @@ const PROJECTS = {
     ]
   }
 };
+
 

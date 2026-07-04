@@ -1,4 +1,4 @@
-/* ═══════════ PAGE SCRIPT ═══════════ */
+﻿/* ═══════════ PAGE SCRIPT ═══════════ */
 
 function buildBlogSidebar(activeKey){
   const list=document.getElementById('blog-sidebar-list');
@@ -117,7 +117,22 @@ function buildModal(key){
   h+=`<div class="modal-origin-heading">Origin</div>`;
   h+=`<div class="modal-body-txt">${p.body}</div>`;
 
+  // Contextual Collaboration CTA
+  h+=`<div class="modal-cta-box">`;
+  h+=`  <div class="modal-cta-line"></div>`;
+  h+=`  <p class="modal-cta-text">Interested in discussing a similar project, custom software engineering, or research collaboration?</p>`;
+  h+=`  <a href="#contact" class="modal-cta-btn" id="modal-cta-btn">Get in Touch <span class="arr">→</span></a>`;
+  h+=`</div>`;
+
   document.getElementById('modal-content-area').innerHTML=h;
+
+  // Close modal when CTA button is clicked
+  const mCta = document.getElementById('modal-cta-btn');
+  if(mCta) {
+    mCta.addEventListener('click', () => {
+      closeModal();
+    });
+  }
   // Wire up ref clicks (after innerHTML is set)
   document.querySelectorAll('.modal-ref[data-ref-file]').forEach(el => {
     el.addEventListener('click', e => {
@@ -135,10 +150,15 @@ function buildModal(key){
   slides.forEach((s,i)=>{
     const card=document.createElement('div');
     card.className='vis-slide-card';
-    const media = s.img 
-      ? `<img src="${s.img}" alt="${s.label}" style="width:100%;height:auto;display:block;" />`
+    const media = s.img
+      ? `<img src="${s.img}" alt="${s.label}" loading="lazy" style="width:100%;height:auto;display:block;" />`
       : `<div class="vis-ph"><div class="vis-ph-ico">${s.ph}</div><div class="vis-ph-txt">${s.label}</div></div>`;
     card.innerHTML=`${media}<div class="vis-slide-label">${s.label}</div><div class="vis-slide-num">${i+1}/${slides.length}</div>`;
+    if(s.img){
+      card.classList.add('has-img');
+      card.setAttribute('title', 'Click to zoom');
+      card.addEventListener('click', () => openGlbSlides(slides, i));
+    }
     stack.appendChild(card);
   });
 }
@@ -148,9 +168,20 @@ function closeModal(){document.getElementById('proj-modal').classList.remove('op
 
 document.getElementById('modal-close-btn').addEventListener('click',closeModal);
 document.getElementById('modal-backdrop').addEventListener('click',closeModal);
-document.querySelectorAll('[data-project]').forEach(c=>c.addEventListener('click',()=>openModal(c.dataset.project)));
+document.querySelectorAll('[data-project]').forEach(c=>{
+  c.setAttribute('tabindex','0');
+  c.setAttribute('role','button');
+  c.addEventListener('click',()=>openModal(c.dataset.project));
+  c.addEventListener('keydown',e=>{
+    if(e.key==='Enter'||e.key===' '){
+      e.preventDefault();
+      openModal(c.dataset.project);
+    }
+  });
+});
 document.addEventListener('keydown',e=>{
   if(!document.getElementById('proj-modal').classList.contains('open'))return;
+  if(document.getElementById('gal-lb').classList.contains('open') || document.getElementById('ref-modal').classList.contains('open'))return;
   if(e.key==='Escape')closeModal();
 });
 
@@ -190,7 +221,7 @@ function buildGallery() {
     div.dataset.idx = i;
 
     const inner = item.img
-      ? `<img src="${item.img}" alt="${item.title}" style="width:100%;height:auto;display:block;" />`
+      ? `<img src="${item.img}" alt="${item.title}" loading="lazy" style="width:100%;height:auto;display:block;" />`
       : `<div class="gal-ph"><div class="gal-ph-ico">◎</div><div class="gal-ph-lbl">${item.title}</div></div>`;
 
     div.innerHTML = `
@@ -249,29 +280,64 @@ document.querySelectorAll('.cert-view').forEach(btn => {
   });
 });
 
+/* ═══════════ LIGHTBOX (Gallery + Project Slides) ═══════════ */
 let glbCur=0;
-function openGlb(i){glbCur=i;renderGlb();document.getElementById('gal-lb').classList.add('open');document.body.style.overflow='hidden';}
-function closeGlb(){document.getElementById('gal-lb').classList.remove('open');document.body.style.overflow='';}
+let glbMode='gallery'; // 'gallery' | 'slides'
+let glbSlides=[];      // active slides array when mode=slides
+
+function glbData()  { return glbMode==='slides' ? glbSlides : GAL_DATA; }
+function glbTotal() { return glbData().length; }
+
+function openGlb(i){
+  glbMode='gallery';
+  glbCur=i;
+  renderGlb();
+  document.getElementById('gal-lb').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+
+function openGlbSlides(slides, i){
+  glbMode='slides';
+  glbSlides=slides;
+  glbCur=i;
+  renderGlb();
+  document.getElementById('gal-lb').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+
+function closeGlb(){
+  document.getElementById('gal-lb').classList.remove('open');
+  document.body.style.overflow='';
+}
+
 function renderGlb(){
-  const d = GAL_DATA[glbCur];
-  const wrap = document.getElementById('glb-wrap');
+  const d=glbData()[glbCur];
+  const wrap=document.getElementById('glb-wrap');
 
   if(d.img){
-    wrap.innerHTML = `<img src="${d.img}" alt="${d.title}" style="max-width:88vw;max-height:80vh;object-fit:contain;" />`;
+    const captionText = d.label || `${d.title} — ${d.sub}`;
+    wrap.innerHTML=`<img src="${d.img}" alt="${captionText}" style="max-width:88vw;max-height:80vh;object-fit:contain;" />`;
   } else {
-    wrap.innerHTML = `<div class="glb-ph-box"><div class="glb-ph-ico">◎</div><div class="glb-ph-lbl">${d.title}</div></div>`;
+    wrap.innerHTML=`<div class="glb-ph-box"><div class="glb-ph-ico">${d.ph||'◎'}</div><div class="glb-ph-lbl">${d.label||d.title}</div></div>`;
   }
 
-  document.getElementById('glb-cap').textContent = `${d.title} — ${d.sub}`;
-  document.getElementById('glb-count').textContent = `${glbCur+1} / ${GAL_DATA.length}`;
+  const cap = d.label ? d.label : (d.title && d.sub ? `${d.title} — ${d.sub}` : (d.title || ''));
+  document.getElementById('glb-cap').textContent=cap;
+  document.getElementById('glb-count').textContent=`${glbCur+1} / ${glbTotal()}`;
 }
 
 galItems.forEach((el,i)=>el.addEventListener('click',()=>{if(!didDrag)openGlb(i);}));
 document.getElementById('glb-close').addEventListener('click',closeGlb);
-document.getElementById('glb-prev').addEventListener('click',()=>{glbCur=(glbCur-1+GAL_DATA.length)%GAL_DATA.length;renderGlb();});
-document.getElementById('glb-next').addEventListener('click',()=>{glbCur=(glbCur+1)%GAL_DATA.length;renderGlb();});
-document.getElementById('gal-lb').addEventListener('click',e=>{if(e.target===document.getElementById('gal-lb'))closeGlb();});
-document.addEventListener('keydown',e=>{if(document.getElementById('gal-lb').classList.contains('open')){if(e.key==='Escape')closeGlb();if(e.key==='ArrowLeft'){glbCur=(glbCur-1+GAL_DATA.length)%GAL_DATA.length;renderGlb();}if(e.key==='ArrowRight'){glbCur=(glbCur+1)%GAL_DATA.length;renderGlb();}}});
+document.getElementById('glb-prev').addEventListener('click',()=>{ glbCur=(glbCur-1+glbTotal())%glbTotal(); renderGlb(); });
+document.getElementById('glb-next').addEventListener('click',()=>{ glbCur=(glbCur+1)%glbTotal(); renderGlb(); });
+document.getElementById('gal-lb').addEventListener('click',e=>{ if(e.target===document.getElementById('gal-lb'))closeGlb(); });
+document.addEventListener('keydown',e=>{
+  if(document.getElementById('gal-lb').classList.contains('open')){
+    if(e.key==='Escape'){ e.stopImmediatePropagation(); closeGlb(); }
+    if(e.key==='ArrowLeft'){  glbCur=(glbCur-1+glbTotal())%glbTotal(); renderGlb(); }
+    if(e.key==='ArrowRight'){ glbCur=(glbCur+1)%glbTotal(); renderGlb(); }
+  }
+});
 
 /* ═══════════ CURSOR ═══════════ */
 const ring = document.getElementById('cursor-ring'), dot = document.getElementById('cursor-dot');
@@ -387,3 +453,51 @@ document.getElementById('ref-modal').addEventListener('click', e => {
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape' && document.getElementById('ref-modal').classList.contains('open')) closeRefModal();
 });
+
+/* ═══════════ FAQ ACCORDION ═══════════ */
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    // Close all open items
+    document.querySelectorAll('.faq-item.open').forEach(i => {
+      i.classList.remove('open');
+      i.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+    });
+    // If it wasn't open, open it
+    if (!isOpen) {
+      item.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  });
+});
+
+/* ═══════════ BACK TO TOP ═══════════ */
+const backTopBtn = document.getElementById('ft-back-top');
+if (backTopBtn) {
+  backTopBtn.addEventListener('click', () => {
+    const hero = document.getElementById('hero');
+    if (hero) hero.scrollIntoView({ behavior: 'smooth' });
+  });
+}
+
+/* ── SCROLL PROGRESS BAR ── */
+window.addEventListener('scroll', () => {
+  const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+  const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+  const progress = document.getElementById('scroll-progress');
+  if (progress) progress.style.width = scrolled + '%';
+});
+
+/* ── CERTIFICATIONS SCROLL FADE ── */
+const certStack = document.getElementById('cert-stack');
+const certScrollWrap = document.getElementById('cert-scroll-wrap');
+if (certStack && certScrollWrap) {
+  const onCertScroll = () => {
+    const atEnd = certStack.scrollTop + certStack.clientHeight >= certStack.scrollHeight - 4;
+    certScrollWrap.classList.toggle('scrolled-end', atEnd);
+  };
+  certStack.addEventListener('scroll', onCertScroll, { passive: true });
+  onCertScroll(); // check initial state
+}
