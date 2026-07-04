@@ -475,6 +475,10 @@ section {
   transition-delay: .32s
 }
 
+.rv5 {
+  transition-delay: .40s
+}
+
 .reveal-grid>* {
   opacity: 0;
   transform: translateY(18px) scale(.98);
@@ -2864,6 +2868,25 @@ section {
   margin-bottom: 10px
 }
 
+.tl-list {
+  list-style-type: disc;
+  margin-left: 18px;
+  margin-top: 8px;
+  margin-bottom: 12px;
+  color: var(--cream-dim);
+  max-width: 500px;
+}
+
+.tl-list li {
+  font-size: 13.5px;
+  line-height: 1.6;
+  margin-bottom: 6px;
+}
+
+.tl-list li strong {
+  color: var(--cream);
+}
+
 .tl-tags {
   display: flex;
   flex-wrap: wrap;
@@ -2878,6 +2901,135 @@ section {
   border: 1px solid var(--border);
   padding: 2px 7px;
   letter-spacing: .05em
+}
+
+/* Grouped Timeline Styles */
+.tl-item.grouped {
+  position: relative;
+}
+
+.tl-group-header {
+  position: relative;
+  padding-left: 0;
+  margin-bottom: 20px;
+}
+
+.tl-group-company {
+  font-family: var(--serif);
+  font-size: 20px;
+  color: var(--cream);
+  line-height: 1.2;
+}
+
+.tl-group-duration {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--text-mute);
+  letter-spacing: .08em;
+  margin-top: 3px;
+}
+
+/* Container for sub-items with indented dashed timeline connector */
+.tl-sub-items {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin-top: 16px;
+  margin-left: 8px;
+  border-left: 1px dashed var(--border2);
+  padding-left: 24px;
+}
+
+.tl-sub-item {
+  position: relative;
+}
+
+/* Small sub-pips centered on the dashed line */
+.tl-sub-pip {
+  position: absolute;
+  left: -28.5px;
+  top: 7px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border2);
+  background: var(--bg2);
+  z-index: 3;
+  transition: border-color .3s, background .3s;
+}
+
+.tl-sub-item:hover .tl-sub-pip {
+  border-color: var(--amber);
+  background: var(--amber-glow);
+}
+
+.tl-sub-role {
+  font-family: var(--serif);
+  font-size: 15px;
+  color: var(--cream);
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.tl-sub-period {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  color: var(--text-mute);
+  letter-spacing: .08em;
+  margin-bottom: 6px;
+}
+
+/* Collapsible timeline roles container */
+.tl-collapsed-wrapper {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.4s var(--ease-expo), opacity 0.3s ease, margin-top 0.4s var(--ease-expo);
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin-top: 0;
+}
+
+.tl-collapsed-wrapper:not(.collapsed) {
+  opacity: 1;
+  margin-top: 28px;
+}
+
+/* Accordion Toggle Button */
+.tl-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: 1px solid var(--border2);
+  border-radius: 4px;
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: .08em;
+  color: var(--text-mute);
+  padding: 8px 14px;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: border-color 0.25s, color 0.25s, background-color 0.25s;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+.tl-toggle-btn:hover {
+  border-color: var(--amber);
+  color: var(--cream);
+  background-color: var(--amber-glow);
+}
+
+.tl-toggle-icon {
+  font-size: 8px;
+  transition: transform 0.3s ease;
+  display: inline-block;
+}
+
+.tl-toggle-btn.active .tl-toggle-icon {
+  transform: rotate(180deg);
 }
 
 .edu-stack {

@@ -1,4 +1,4 @@
-﻿/* ═══════════ PAGE SCRIPT ═══════════ */
+/* ═══════════ PAGE SCRIPT ═══════════ */
 
 function buildBlogSidebar(activeKey){
   const list=document.getElementById('blog-sidebar-list');
@@ -500,4 +500,26 @@ if (certStack && certScrollWrap) {
   };
   certStack.addEventListener('scroll', onCertScroll, { passive: true });
   onCertScroll(); // check initial state
+}
+
+/* ═══════════ EXPERIENCE ACCORDION ═══════════ */
+const expToggle = document.getElementById('acomss-toggle-btn');
+const expCollapsed = document.getElementById('acomss-collapsed');
+if (expToggle && expCollapsed) {
+  expToggle.addEventListener('click', () => {
+    const isCollapsed = expCollapsed.classList.contains('collapsed');
+    if (isCollapsed) {
+      expCollapsed.classList.remove('collapsed');
+      expToggle.classList.add('active');
+      expToggle.setAttribute('aria-expanded', 'true');
+      expToggle.querySelector('span:first-child').textContent = 'Hide previous roles';
+      expCollapsed.style.maxHeight = expCollapsed.scrollHeight + 'px';
+    } else {
+      expCollapsed.classList.add('collapsed');
+      expToggle.classList.remove('active');
+      expToggle.setAttribute('aria-expanded', 'false');
+      expToggle.querySelector('span:first-child').textContent = 'Show 2 previous roles';
+      expCollapsed.style.maxHeight = '0px';
+    }
+  });
 }
