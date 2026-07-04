@@ -1,4 +1,4 @@
-﻿*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --ease-expo:cubic-bezier(0.16,1,0.3,1);
   --ease-back:cubic-bezier(0.34,1.56,0.64,1);
@@ -306,24 +306,11 @@ section{position:relative}
   line-height:1.75;
 }
 .featured-card{position:relative;overflow:hidden;}
-.card-thumb{
-  position:absolute;
-  right:0;top:0;bottom:0;
-  width:38%;
-  background-size:cover;
-  background-position:center top;
-  opacity:0.18;
-  mask-image:linear-gradient(to right, transparent 0%, black 40%);
-  -webkit-mask-image:linear-gradient(to right, transparent 0%, black 40%);
-  transition:opacity .3s;
-}
-.featured-card:hover .card-thumb{opacity:0.28;}
+
 .proj-grid .lone-card, .lab-grid .lone-card {
   grid-column: span 2;
 }
-.proj-card:not(.featured-card):not(.lone-card) .card-thumb {
-  display: none;
-}
+
 
 /* ══════════ PROJECT MODAL ══════════ */
 #proj-modal{position:fixed;inset:0;z-index:9500;display:none;align-items:center;justify-content:center;padding:40px 24px;pointer-events:none;}
